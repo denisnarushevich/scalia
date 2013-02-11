@@ -5,9 +5,9 @@ define([
     './Component',
     './gameObjects/CameraObject',
     './components/CameraComponent',
-    './components/RendererComponent',
-    './components/BehaviorComponent'
-], function (utils, Game, GameObject, Component, CameraObject, CameraComponent, RendererComponent, BehaviorComponent) {
+    './components/BehaviorComponent',
+    './components/ShapeComponent',
+], function (utils, Game, GameObject, Component, CameraObject, CameraComponent, BehaviorComponent, ShapeComponent) {
     return window.scaliaEngine = {
         utils: utils,
         Game: Game,
@@ -18,8 +18,8 @@ define([
         },
         components: {
             CameraComponent: CameraComponent,
-            RendererComponent: RendererComponent,
-            BehaviorComponent: BehaviorComponent
+            BehaviorComponent: BehaviorComponent,
+            ShapeComponent: ShapeComponent
         }
     };
 });

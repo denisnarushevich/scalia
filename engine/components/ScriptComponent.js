@@ -1,3 +1,0 @@
-define(['./BehaviorComponent'], function(BehaviorComponent){
-
-});

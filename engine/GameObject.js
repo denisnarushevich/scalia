@@ -72,7 +72,7 @@ define(['./components/TransformComponent'], function (TransformComponent) {
      * @return {*}
      */
     p.AddComponent = function(component){
-        component.gameObject = this;
+        component.SetGameObject(this);
         this.components[component.componentName] = component;
         this.componentsList[this.componentsList.length] = component;
     }

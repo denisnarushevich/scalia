@@ -1,5 +1,5 @@
 define(function() {
-    Vec2 = {};
+    var Vec2 = {};
 
     /**
      * Zero vector

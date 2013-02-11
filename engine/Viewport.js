@@ -1,6 +1,6 @@
 define(function () {
     /**
-     * @param {CameraComponent} camera
+     * @param {CameraObject} camera
      * @constructor
      */
     function Viewport(camera, size) {
@@ -20,7 +20,7 @@ define(function () {
     p.size = null;
 
     /**
-     * @type {CameraComponent}
+     * @type {CameraObject}
      */
     p.camera = null;
 
@@ -40,14 +40,36 @@ define(function () {
     p.Render = function () {
         this.context.clearRect(0, 0, this.size[0], this.size[1]);
 
-        var gameObjects = this.camera.components.Camera.visibles,
+        var cameraObject = this.camera,
+            cameraComponent = cameraObject.cameraComponent,
+            gameObjects = cameraComponent.visibles,
             gameObjectsCount = gameObjects.length,
-            gameObject, renderer;
+            gameObject, screenX, screenY, i, j,
+            vertices, verticesCount, vertice;
 
-        for (var i = 0; i < gameObjectsCount; i++) {
+        var cameraToViewportRatioX = this.size[0]/cameraComponent.size[0];
+        var cameraToViewportRatioY = this.size[1]/ cameraComponent.size[1];
+
+        for (i = 0; i < gameObjectsCount; i++) {
             gameObject = gameObjects[i];
+            vertices = gameObject.components.shape.vertices;
+            verticesCount = vertices.length;
 
-                gameObject.components.Renderer.Draw(this.context);
+            //WRONG. screenX and Y shouldn't be tied to xy coord of gameObject. GameObject's 3D position should be projected on 2D screen plane.
+            screenX = (gameObject.transform.position[0] - cameraObject.transform.position[0] + cameraComponent.size[0]/2) * cameraToViewportRatioX;
+            screenY = (gameObject.transform.position[1] - cameraObject.transform.position[1] + cameraComponent.size[1]/2) * cameraToViewportRatioY;
+
+            //TRANSFORMATIONS such as scaling and rotation should be aplied here.
+
+            this.context.beginPath();
+            vertice = vertices[0];
+            for (j = 1; j <= verticesCount; j++) {
+                this.context.moveTo(vertice[0] * cameraToViewportRatioX + screenX, vertice[1] * cameraToViewportRatioY + screenY);
+                vertice = vertices[j == verticesCount ? 0 : j];
+                this.context.lineTo(vertice[0] * cameraToViewportRatioX + screenX, vertice[1] * cameraToViewportRatioY + screenY);
+            }
+            this.context.closePath();
+            this.context.stroke();
         }
     }
 

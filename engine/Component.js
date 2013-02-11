@@ -1,11 +1,12 @@
-define(function () {
+define(["./EventManager"], function (EventManager) {
     /**
      * @constructor
      */
     function Component() {
+        EventManager.call(this);
     }
 
-    var p = Component.prototype;
+    var p = Component.prototype = Object.create(EventManager.prototype);
 
     /**
      * @type {String}
@@ -16,6 +17,10 @@ define(function () {
      * @type {GameObject}
      */
     p.gameObject = null;
+
+    p.SetGameObject = function(gameObject){
+        this.gameObject = gameObject;
+    }
 
     return Component;
 });
