@@ -10,10 +10,7 @@ require(["./engine/engine"], function (scaliaEngine) {
             var ball = new BallObject(myGame.logic.world, 20);
             ball.transform.position = scaliaEngine.utils.math.vec3.randomUnit();
             scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.position, ball.transform.position, 1000*Math.random());
-
-            //scaliaEngine.utils.math.vec3.scale(ball.transform.scale, 100*Math.random(), ball.transform.scale);
             scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.scale, ball.transform.scale, 100*Math.random());
-
 
             myGame.logic.world.AddChildren(ball);
 

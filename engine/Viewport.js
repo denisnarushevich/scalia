@@ -55,6 +55,14 @@ define(function () {
             vertices = gameObject.components.shape.vertices;
             verticesCount = vertices.length;
 
+            //calculate coordinates relative to camera
+
+            //translate unit coordinates in UV coordinates, using aspec ratio of camera.
+
+            //calculate screen coordinates from UVs
+
+            //.....
+
             //WRONG. screenX and Y shouldn't be tied to xy coord of gameObject. GameObject's 3D position should be projected on 2D screen plane.
             screenX = (gameObject.transform.position[0] - cameraObject.transform.position[0] + cameraComponent.size[0]/2) * cameraToViewportRatioX;
             screenY = (gameObject.transform.position[1] - cameraObject.transform.position[1] + cameraComponent.size[1]/2) * cameraToViewportRatioY;
