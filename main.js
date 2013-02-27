@@ -6,10 +6,10 @@ require(["./engine/engine"], function (scaliaEngine) {
     ], function (BallObject, RectangleShape, MoveScript) {
         var myGame = new scaliaEngine.Game();
 
-        for (var i = 0; i < 5000; i++) {
+        for (var i = 0; i < 500; i++) {
             var ball = new BallObject(myGame.logic.world, 20);
             ball.transform.position = scaliaEngine.utils.math.vec3.randomUnit();
-            scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.position, ball.transform.position, 1000*Math.random());
+            scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.position, ball.transform.position, 500*Math.random());
             scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.scale, ball.transform.scale, 100*Math.random());
 
             myGame.logic.world.AddChildren(ball);
@@ -22,6 +22,7 @@ require(["./engine/engine"], function (scaliaEngine) {
 
         var cameraObject = new scaliaEngine.gameObjects.CameraObject();
         cameraObject.components.camera.size = size;
+        cameraObject.transform.position = [0,0,0];
 
         myGame.logic.world.AddChildren(cameraObject);
 

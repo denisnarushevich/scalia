@@ -10,6 +10,12 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
 
     function Camera(){
         this.visibles = [];
+        this.matrix = [
+            1,0,0,0,
+            0,1,0,0,
+            0,0,1,0,
+            0,0,0,1
+        ]
     }
 
     var p = Camera.prototype = Object.create(BehaviorComponent.prototype);
@@ -24,6 +30,12 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
 
     p.size = [100, 100];
 
+    /**
+     * Transformation matrix
+     * @type {mat4}
+     */
+    p.matrix = null;
+
     p.IsVisible = function (gameObject) {
         var posX = gameObject.transform.position[0],
             posY = gameObject.transform.position[1];
@@ -37,6 +49,9 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
 
     p.DetectVisibles = function(){
         this.visibles = [];
+
+        //TODO: do search starting from camera, rather from world root. Think about using OctTree
+
         var gameObjects = this.gameObject.root.children,
             gameObjectsCount = gameObjects.length,
             gameObject;
@@ -51,6 +66,7 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
 
     p.Update = function(){
         this.DetectVisibles();
+        scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, Math.PI/180 * 1, [1,1,1]);
     }
 
     return Camera;

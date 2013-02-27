@@ -6,6 +6,8 @@ define(['./components/TransformComponent'], function (TransformComponent) {
     function GameObject() {
         this.id = GameObject.prototype.id++;
 
+        this.matrix = scaliaEngine.utils.glMatrix.mat4.create();
+
         this.children = [];
 
         this.components = {};
@@ -20,6 +22,12 @@ define(['./components/TransformComponent'], function (TransformComponent) {
      * @type {Number}
      */
     p.id = 0;
+
+    /**
+     * Transformation matrix 4x4
+     * @type {mat4}
+     */
+    p.matrix = null;
 
     /**
      * @type {Array} Position vector relative to parent position
