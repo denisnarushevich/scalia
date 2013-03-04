@@ -1,4 +1,4 @@
-define(["./BehaviorComponent"], function(BehaviorComponent){
+define(["../Component"], function(Component){
 
     /**
      * Camera component represents camera, observer.
@@ -8,19 +8,12 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
      * @constructor
      */
 
-    function Camera(){
+    function CameraComponent(gameObject){
+        Component.call(this, gameObject);
         this.visibles = [];
-        this.matrix = [
-            1,0,0,0,
-            0,1,0,0,
-            0,0,1,0,
-            0,0,0,1
-        ]
     }
 
-    var p = Camera.prototype = Object.create(BehaviorComponent.prototype);
-
-    p.componentName = "camera";
+    var p = CameraComponent.prototype = Object.create(Component.prototype);
 
     /**
      * array of gameObjects, that are visible to the camera.
@@ -29,12 +22,6 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
     p.visibles = null;
 
     p.size = [100, 100];
-
-    /**
-     * Transformation matrix
-     * @type {mat4}
-     */
-    p.matrix = null;
 
     p.IsVisible = function (gameObject) {
         var posX = gameObject.transform.position[0],
@@ -52,7 +39,7 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
 
         //TODO: do search starting from camera, rather from world root. Think about using OctTree
 
-        var gameObjects = this.gameObject.root.children,
+        var gameObjects = this.gameObject.world.gameObjects,
             gameObjectsCount = gameObjects.length,
             gameObject;
 
@@ -64,11 +51,11 @@ define(["./BehaviorComponent"], function(BehaviorComponent){
         }
     }
 
-    p.Update = function(){
+    p.Tick = function(){
         this.DetectVisibles();
-        scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, Math.PI/180 * 1, [1,1,1]);
+        //scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, Math.PI/180 * 1, [1,1,1]);
     }
 
-    return Camera;
+    return CameraComponent;
 });
 

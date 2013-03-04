@@ -14,7 +14,7 @@ define(["../Component"], function (Component) {
         this.scale = [1, 1, 1];
         this.localScale = [1, 1, 1];
         this.children = [];
-        this.matrix = scaliaEngine.glMatrix.mat4.create();
+        this.matrix = scaliaEngine.utils.glMatrix.mat4.create();
     }
 
     var p = Transform.prototype = Object.create(Component.prototype);
@@ -138,9 +138,10 @@ define(["../Component"], function (Component) {
      * Game tick.
      * @return {void}
      */
-    p.Tick = function () {
-
-        //update pos, scal, rot, etc locals too.
+    p.Tick = function(){
+        //scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, 3.14/180*10, [1,1,1]);
+        //scaliaEngine.utils.glMatrix.vec3.transformMat4(this.rotation, this.rotation, this.matrix);
+        this.position = [Math.random(), Math.random(), Math.random()];
     }
 
     return Transform;

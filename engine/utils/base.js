@@ -1,6 +1,5 @@
-define(['./base/math', './base/structs', './gl-matrix.js'], function (math, structs, glMatrix) {
+define(['./base/structs', './gl-matrix.js'], function (structs, glMatrix) {
     return {
-        math:math,
         structs:structs,
         glMatrix:glMatrix
     };

@@ -3,22 +3,22 @@ define([
     './Game',
     './GameObject',
     './Component',
-    './gameObjects/CameraObject',
+    './gameObjects/Camera',
+    './gameObjects/Cube',
     './components/CameraComponent',
-    './components/BehaviorComponent',
     './components/ShapeComponent',
-], function (utils, Game, GameObject, Component, CameraObject, CameraComponent, BehaviorComponent, ShapeComponent) {
+], function (utils, Game, GameObject, Component, Camera, Cube, CameraComponent, ShapeComponent) {
     return window.scaliaEngine = {
         utils: utils,
         Game: Game,
         GameObject: GameObject,
         Component: Component,
-        gameObjects:{
-          CameraObject: CameraObject
+        gameObjects: {
+            Camera: Camera,
+            Cube: Cube
         },
         components: {
             CameraComponent: CameraComponent,
-            BehaviorComponent: BehaviorComponent,
             ShapeComponent: ShapeComponent
         }
     };

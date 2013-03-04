@@ -42,7 +42,7 @@ define(["./Logic", "./Graphics", "./utils/base"], function (Logic, Graphics, uti
      * @type {void}
      */
     p.MainLoop = function () {
-        this.logic.Update();
+        this.logic.Tick();
 
         this.graphics.Render();
 

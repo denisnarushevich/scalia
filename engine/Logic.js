@@ -1,4 +1,4 @@
-define(['./Time', './gameObjects/WorldObject'], function (Time, WorldObject) {
+define(['./Time', './World'], function (Time, World) {
     /**
      * @param {Game} game
      * @constructor
@@ -6,7 +6,7 @@ define(['./Time', './gameObjects/WorldObject'], function (Time, WorldObject) {
     function Logic(game) {
         this.game = game;
         this.time = new Time();
-        this.world = new WorldObject(this);
+        this.world = new World(this);
     }
 
     var p = Logic.prototype;
@@ -30,7 +30,7 @@ define(['./Time', './gameObjects/WorldObject'], function (Time, WorldObject) {
     /**
      * @return {void}
      */
-    p.Update = function () {
+    p.Tick = function () {
         var now = Date.now();
         var frameTime = now - this.time.now,
             dt = this.time.dt;
@@ -39,7 +39,7 @@ define(['./Time', './gameObjects/WorldObject'], function (Time, WorldObject) {
             frameTime -= dt;
             this.time.now += dt;
             this.time.time += dt;
-            this.world.Update();
+            this.world.Tick();
         }
     }
 

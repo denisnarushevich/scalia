@@ -1,30 +1,22 @@
 require(["./engine/engine"], function (scaliaEngine) {
     require([
-        './js/gameObjects/BallObject',
-        './js/shapes/RectangleShape',
-        './js/scripts/MoveScript'
+        //'./js/gameObjects/BallObject',
+        //'./engine/components/RectangleShape',
+        //'./js/scripts/MoveScript'
     ], function (BallObject, RectangleShape, MoveScript) {
         var myGame = new scaliaEngine.Game();
 
-        for (var i = 0; i < 500; i++) {
-            var ball = new BallObject(myGame.logic.world, 20);
-            ball.transform.position = scaliaEngine.utils.math.vec3.randomUnit();
-            scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.position, ball.transform.position, 500*Math.random());
-            scaliaEngine.utils.glMatrix.vec3.scale(ball.transform.scale, ball.transform.scale, 100*Math.random());
+        var cube = window.cube = new scaliaEngine.gameObjects.Cube();
 
-            myGame.logic.world.AddChildren(ball);
-
-            ball.AddComponent(new RectangleShape());
-            ball.AddComponent(new MoveScript());
-        }
+        myGame.logic.world.AddGameObject(cube);
 
         var size = [document.width, document.height];
 
-        var cameraObject = new scaliaEngine.gameObjects.CameraObject();
-        cameraObject.components.camera.size = size;
+        var cameraObject = new scaliaEngine.gameObjects.Camera();
+        cameraObject.camera.size = size;
         cameraObject.transform.position = [0,0,0];
 
-        myGame.logic.world.AddChildren(cameraObject);
+        myGame.logic.world.AddGameObject(cameraObject);
 
         myGame.Run();
 

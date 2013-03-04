@@ -6,6 +6,7 @@ define(["./EventManager"], function (EventManager) {
      */
     function Component(gameObject) {
         EventManager.call(this);
+        this.gameObject = gameObject;
     }
 
     var p = Component.prototype = Object.create(EventManager.prototype);
@@ -15,6 +16,10 @@ define(["./EventManager"], function (EventManager) {
      * @read-only
      */
     p.gameObject = null;
+
+    p.Tick = function(){
+
+    }
 
     return Component;
 });
