@@ -1,19 +1,12 @@
-define(['./components/TransformComponent'], function (TransformComponent) {
+define(['./components/Transform', './Component'], function (Transform, Component) {
     /**
      * Base object
      * @constructor
      */
     function GameObject() {
         this.id = GameObject.prototype.id++;
-
-        this.matrix = scaliaEngine.utils.glMatrix.mat4.create();
-
-        this.children = [];
-
-        this.components = {};
-        this.componentsList = [];
-
-        this.AddComponent(this.transform = new TransformComponent());
+        this.components = [];
+        this.AddComponent(new Transform(this));
     }
 
     var p = GameObject.prototype;
@@ -24,30 +17,10 @@ define(['./components/TransformComponent'], function (TransformComponent) {
     p.id = 0;
 
     /**
-     * Transformation matrix 4x4
-     * @type {mat4}
+     * Transform component attached to this game object.
+     * @type {Transform}
      */
-    p.matrix = null;
-
-    /**
-     * @type {Array} Position vector relative to parent position
-     */
-    p.position = null;
-
-    /**
-     * @type {number[]} Vector3.
-     */
-    p.scale = null;
-
-    /**
-     * @type {GameObject}
-     */
-    p.root = null;
-
-    /**
-     * @type {GameObject}
-     */
-    p.parent = null;
+    p.transform = null;
 
     /**
      * @type {Component[]}
@@ -55,43 +28,26 @@ define(['./components/TransformComponent'], function (TransformComponent) {
     p.components = null;
 
     /**
-     * @type {Component[]}
-     */
-    p.componentsList = null;
-
-    /**
-     * @private
-     * @type {GameObject[]}
-     */
-    p.children = null;
-
-    /**
-     * @param {GameObject} children
-     */
-    p.AddChildren = function(children){
-        children.parent = this;
-        children.root = this.root || this;
-        this.children[this.children.length] = children;
-    }
-
-    /**
      * @public
      * @param {Component} component
      * @return {*}
      */
     p.AddComponent = function(component){
-        component.SetGameObject(this);
-        this.components[component.componentName] = component;
-        this.componentsList[this.componentsList.length] = component;
+        if(component instanceof Transform){
+            this.transform = component;
+        }
+
+        this.components[this.components.length] = component;
     }
 
     p.Update = function(){
-        for(var i = 0; i < this.componentsList.length; i++){
+        /*for(var i = 0; i < this.componentsList.length; i++){
             if(this.componentsList[i].Update)
                 this.componentsList[i].Update();
         }
         for(var i = 0; i < this.children.length; i++)
             this.children[i].Update()
+            */
     }
 
     return GameObject;

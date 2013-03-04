@@ -1,26 +1,20 @@
 define(["./EventManager"], function (EventManager) {
     /**
+     * Every component has attached game object.
+     * @param {GameObject} gameObject
      * @constructor
      */
-    function Component() {
+    function Component(gameObject) {
         EventManager.call(this);
     }
 
     var p = Component.prototype = Object.create(EventManager.prototype);
 
     /**
-     * @type {String}
-     */
-    p.componentName = "Component";
-
-    /**
      * @type {GameObject}
+     * @read-only
      */
     p.gameObject = null;
-
-    p.SetGameObject = function(gameObject){
-        this.gameObject = gameObject;
-    }
 
     return Component;
 });
