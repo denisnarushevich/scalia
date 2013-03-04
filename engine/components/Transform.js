@@ -22,36 +22,42 @@ define(["../Component"], function (Component) {
     /**
      * The position of the transform in world space.
      * @type {Vec3}
+     * @read-only
      */
     p.position = null;
 
     /**
      * Position of the transform relative to the parent transform.
      * @type {Vec3}
+     * @read-only
      */
     p.localPosition = null;
 
     /**
      * Rotation of the transform relative to world.
      * @type {Vec3}
+     * @read-only
      */
     p.rotation = null;
 
     /**
      * Rotation of the transform relative to parent transform.
      * @type {Vec3}
+     * @read-only
      */
     p.localRotation = null;
 
     /**
      * Scale of the transform relative to world.
      * @type {Ve3}
+     * @read-only
      */
     p.scale = null;
 
     /**
      * Scale of the transform relative to parent.
      * @type {Vec3}
+     * @read-only
      */
     p.localScale = null;
 
@@ -84,22 +90,57 @@ define(["../Component"], function (Component) {
     /**
      * @param {Transform} children
      */
-    p.AddChildren = function(children){
+    p.AddChildren = function (children) {
         children.parent = this;
         children.root = this.root || this;
         this.children[this.children.length] = children;
     }
 
-    p.SetScale = function(x, y, z){
+    /**
+     * @param {int} x
+     * @param {int} y
+     * @param {int} z
+     */
+    p.SetPosition = function (x, y, z) {
+        this.position[0] = x;
+        this.position[1] = y;
+        this.position[2] = z;
+        if (this.parent !== null)
+            scaliaEngine.utils.glMatrix.vec3.subtract(this.localPosition, this.parent.position, position);
+    }
+
+    /**
+     * @param {int} x
+     * @param {int} y
+     * @param {int} z
+     */
+    p.SetLocalPosition = function (x, y, z) {
+        this.localPosition[0] = x;
+        this.localPosition[1] = y;
+        this.localPosition[2] = z;
+        scaliaEngine.utils.glMatrix.vec3.add(this.position, this.parent.position, localPosition)
+    }
+
+
+    p.SetScale = function (x, y, z) {
         this.scale[0] = x;
         this.scale[1] = y;
         this.scale[2] = z;
         this.DispatchEvent("update", this);
     }
 
-    p.Rotate = function(x, y, z){
+    p.Rotate = function (x, y, z) {
         //scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, Math.PI/180 * 1, [x,y,z]); //?
         //scaliaEngine.utils.glMatrix.vec3.transformMat4(this.position, this.position, this.matrix);
+    }
+
+    /**
+     * Game tick.
+     * @return {void}
+     */
+    p.Tick = function () {
+
+        //update pos, scal, rot, etc locals too.
     }
 
     return Transform;
