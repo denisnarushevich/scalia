@@ -14,7 +14,12 @@ define(["../Component"], function (Component) {
         this.scale = [1, 1, 1];
         this.localScale = [1, 1, 1];
         this.children = [];
-        this.matrix = scaliaEngine.utils.glMatrix.mat4.create();
+        this.matrix = [
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1
+        ];
     }
 
     var p = Transform.prototype = Object.create(Component.prototype);
@@ -105,8 +110,12 @@ define(["../Component"], function (Component) {
         this.position[0] = x;
         this.position[1] = y;
         this.position[2] = z;
-        if (this.parent !== null)
-            scaliaEngine.utils.glMatrix.vec3.subtract(this.localPosition, this.parent.position, position);
+
+        if (this.parent == null)
+            //this.SetLocalPosition(x, y, z); //TODO razobratsa s local\nelocal
+        else
+            scaliaEngine.utils.glMatrix.vec3.subtract(this.localPosition, this.parent.position, this.position);
+
         this.DispatchEvent(this.events.Update, this);
     }
 
@@ -119,7 +128,9 @@ define(["../Component"], function (Component) {
         this.localPosition[0] = x;
         this.localPosition[1] = y;
         this.localPosition[2] = z;
-        scaliaEngine.utils.glMatrix.vec3.add(this.position, this.parent.position, localPosition)
+
+        scaliaEngine.utils.glMatrix.vec3.add(this.position, this.parent.position, localPosition);
+
         this.DispatchEvent(this.events.Update, this);
     }
 
@@ -128,6 +139,7 @@ define(["../Component"], function (Component) {
         this.scale[0] = x;
         this.scale[1] = y;
         this.scale[2] = z;
+        scaliaEngine.utils.glMatrix.mat4.scale(this.matrix, this.matrix, this.scale);
         this.DispatchEvent(this.events.Update, this);
     }
 
