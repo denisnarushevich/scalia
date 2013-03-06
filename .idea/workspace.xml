@@ -20,12 +20,12 @@
     <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-strict.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
     <file path="/Viewport.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362433150531" ignored="false" />
-    <file path="/main.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362431776785" ignored="false" />
+    <file path="/main.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362524723279" ignored="false" />
     <file path="/CameraComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429424910" ignored="false" />
     <file path="/RectangleShape.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361992806384" ignored="false" />
     <file path="/GameObject.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429570961" ignored="false" />
     <file path="/BallObject.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361994012196" ignored="false" />
-    <file path="/TransformComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362432366942" ignored="false" />
+    <file path="/TransformComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362524160724" ignored="false" />
     <file path="/Component.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429497262" ignored="false" />
     <file path="/Transform.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362426964684" ignored="false" />
     <file path="/Game.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362425757565" ignored="false" />
@@ -37,8 +37,9 @@
     <file path="/engine.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362428817526" ignored="false" />
     <file path="/Camera.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429034814" ignored="false" />
     <file path="/World.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429402311" ignored="false" />
-    <file path="/ShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362433627596" ignored="false" />
-    <file path="/CubeShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362432635589" ignored="false" />
+    <file path="/ShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362524220427" ignored="false" />
+    <file path="/CubeShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362523659554" ignored="false" />
+    <file path="/EventManager.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362522430636" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="45" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+            <state line="8" column="28" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -70,7 +71,7 @@
       <file leaf-file-name="gl-matrix.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="3073" column="60" selection-start="79288" selection-end="79288" vertical-scroll-proportion="-90.64">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -81,7 +82,7 @@
       <file leaf-file-name="Viewport.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/Viewport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="83" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0">
+            <state line="76" column="79" selection-start="2251" selection-end="2251" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,15 +92,6 @@
         <entry file="file://$PROJECT_DIR$/engine/Component.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="8" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="4" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -126,25 +118,34 @@
       <file leaf-file-name="TransformComponent.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="38" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.0">
+            <state line="146" column="53" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShapeComponent.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EventManager.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/EventManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="49" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShapeComponent.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/engine/components/ShapeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="30" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0">
+            <state line="59" column="80" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.79522187">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CubeShapeComponent.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CubeShapeComponent.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/components/CubeShapeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="13" selection-start="836" selection-end="836" vertical-scroll-proportion="0.75256556">
+            <state line="67" column="0" selection-start="1310" selection-end="1412" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -160,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/engine/components/CubeShape.js" />
         <option value="$PROJECT_DIR$/engine/components/Shape.js" />
         <option value="$PROJECT_DIR$/engine/Logic.js" />
         <option value="$PROJECT_DIR$/engine/engine.js" />
@@ -170,12 +170,13 @@
         <option value="$PROJECT_DIR$/engine/GameObject.js" />
         <option value="$PROJECT_DIR$/engine/Component.js" />
         <option value="$PROJECT_DIR$/engine/utils/base.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/engine/gameObjects/Cube.js" />
+        <option value="$PROJECT_DIR$/engine/EventManager.js" />
         <option value="$PROJECT_DIR$/engine/components/TransformComponent.js" />
+        <option value="$PROJECT_DIR$/engine/components/ShapeComponent.js" />
         <option value="$PROJECT_DIR$/engine/components/CubeShapeComponent.js" />
         <option value="$PROJECT_DIR$/engine/Viewport.js" />
-        <option value="$PROJECT_DIR$/engine/components/ShapeComponent.js" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -210,6 +211,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -288,6 +290,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gameObjects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -312,15 +336,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -379,11 +402,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1926" height="1052" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15181866" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -394,6 +416,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -468,13 +491,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/engine/Logic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="30" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/engine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="42" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
@@ -510,16 +526,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/Component.js">
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="8" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
+        <state line="8" column="4" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
+        <state line="7" column="65" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -531,53 +547,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/engine/Component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="45" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+        <state line="20" column="8" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="3073" column="60" selection-start="79288" selection-end="79288" vertical-scroll-proportion="-90.64">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
+    <entry file="file://$PROJECT_DIR$/engine/components/CubeShapeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="65" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="38" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.0">
+        <state line="67" column="0" selection-start="1310" selection-end="1412" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/Viewport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="83" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0">
+        <state line="76" column="79" selection-start="2251" selection-end="2251" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="28" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/EventManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="49" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="53" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/components/ShapeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="30" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/CubeShapeComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="13" selection-start="836" selection-end="836" vertical-scroll-proportion="0.75256556">
+        <state line="59" column="80" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.79522187">
           <folding />
         </state>
       </provider>

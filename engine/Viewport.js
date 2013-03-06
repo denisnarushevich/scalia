@@ -64,7 +64,7 @@ define(function () {
                 this.context.beginPath();
                 vertice = vertices[0];
 
-                scaliaEngine.utils.glMatrix.vec3.scale(vertice1, vertice, 30);
+                scaliaEngine.utils.glMatrix.vec3.scale(vertice1, vertice, 20);
 
                 scaliaEngine.utils.glMatrix.vec3.add(vertice1, relativePosition, vertice1);
                 x = ((vertice1[0] / cameraComponent.size[0] + 0.5) * this.size[0]);
@@ -74,7 +74,7 @@ define(function () {
                     this.context.moveTo(x, y);
                     vertice = vertices[j == verticesCount ? 0 : j];
 
-                    scaliaEngine.utils.glMatrix.vec3.scale(vertice1, vertice, 30);
+                    scaliaEngine.utils.glMatrix.vec3.scale(vertice1, vertice, 20);
 
 
                     scaliaEngine.utils.glMatrix.vec3.add(vertice1, relativePosition, vertice1);

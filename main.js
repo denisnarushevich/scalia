@@ -6,9 +6,14 @@ require(["./engine/engine"], function (scaliaEngine) {
     ], function (BallObject, RectangleShape, MoveScript) {
         var myGame = new scaliaEngine.Game();
 
+        for(var i = 0; i < 200; i++){
         var cube = window.cube = new scaliaEngine.gameObjects.Cube();
+            cube.transform.position[0] = i+Math.random()*2000-1000;
+            cube.transform.position[1] = i+Math.random()*2000-1000;
+            myGame.logic.world.AddGameObject(cube);
+        }
 
-        myGame.logic.world.AddGameObject(cube);
+
 
         var size = [document.width, document.height];
 

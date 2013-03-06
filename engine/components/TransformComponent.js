@@ -107,6 +107,7 @@ define(["../Component"], function (Component) {
         this.position[2] = z;
         if (this.parent !== null)
             scaliaEngine.utils.glMatrix.vec3.subtract(this.localPosition, this.parent.position, position);
+        this.DispatchEvent(this.events.Update, this);
     }
 
     /**
@@ -119,6 +120,7 @@ define(["../Component"], function (Component) {
         this.localPosition[1] = y;
         this.localPosition[2] = z;
         scaliaEngine.utils.glMatrix.vec3.add(this.position, this.parent.position, localPosition)
+        this.DispatchEvent(this.events.Update, this);
     }
 
 
@@ -126,7 +128,7 @@ define(["../Component"], function (Component) {
         this.scale[0] = x;
         this.scale[1] = y;
         this.scale[2] = z;
-        this.DispatchEvent("update", this);
+        this.DispatchEvent(this.events.Update, this);
     }
 
     p.Rotate = function (x, y, z) {
@@ -141,7 +143,8 @@ define(["../Component"], function (Component) {
     p.Tick = function(){
         //scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, 3.14/180*10, [1,1,1]);
         //scaliaEngine.utils.glMatrix.vec3.transformMat4(this.rotation, this.rotation, this.matrix);
-        this.position = [Math.random(), Math.random(), Math.random()];
+        //this.position = [Math.random(), Math.random(), Math.random()];
+        this.DispatchEvent(this.events.Update, this);
     }
 
     return Transform;

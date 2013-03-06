@@ -3,7 +3,9 @@ define(["./ShapeComponent"], function(Shape){
      * @param {RectangleObject} Rectangle
      * @constructor
      */
-    function RectangleShape() {
+    function RectangleShape(gameObject) {
+        Shape.call(this, gameObject);
+
         this.vertices2 = [
                 0,0,0,
                 1,0,0,

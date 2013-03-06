@@ -5,21 +5,25 @@ define(function () {
 
     var p = EventManager.prototype;
 
+    p.events = {
+        Update: "Update"
+    };
+
     p.eventListeners = null;
 
-    p.AddListener = function (eventName, callback) {
-        var listeners = this.eventListeners[eventName];
+    p.AddListener = function (event, callback) {
+        var listeners = this.eventListeners[event];
 
         if (listeners)
             listeners[listeners.length] = callback;
         else
             listeners = [callback];
 
-        this.eventListeners[eventName] = listeners;
+        this.eventListeners[event] = listeners;
     }
 
-    p.DispatchEvent = function (eventName, sender) {
-        var listeners = this.eventListeners[eventName],
+    p.DispatchEvent = function (event, sender) {
+        var listeners = this.eventListeners[event],
             listenersCount = listeners ? listeners.length : 0;
 
         for (var i = 0; i < listenersCount; i++)
