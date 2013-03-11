@@ -14,7 +14,20 @@ define(["../Component"], function (Component) {
         this.scale = [1, 1, 1];
         this.localScale = [1, 1, 1];
         this.children = [];
-        this.matrix = [
+
+        this.localMatrix = [
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1
+        ];
+        this.worldMatrix = [
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1
+        ];
+        this.worldToLocal = [
             1, 0, 0, 0,
             0, 1, 0, 0,
             0, 0, 1, 0,
@@ -70,7 +83,12 @@ define(["../Component"], function (Component) {
      *
      * @type {Mat4}
      */
-    p.matrix = null;
+    p.worldMatrix = null;
+
+    p.localMatrix = null;
+
+    p.localToWorld = null;
+    p.worldToLocal = null;
 
     /**
      * @type {Transform[]}
@@ -111,10 +129,30 @@ define(["../Component"], function (Component) {
         this.position[1] = y;
         this.position[2] = z;
 
-        if (this.parent == null)
-            //this.SetLocalPosition(x, y, z); //TODO razobratsa s local\nelocal
-        else
-            scaliaEngine.utils.glMatrix.vec3.subtract(this.localPosition, this.parent.position, this.position);
+        this.CalculateWorldMatrix();
+        this.UpdateLocalMatrix();
+
+        this.DispatchEvent(this.events.Update, this);
+    }
+
+    p.SetScale = function (x, y, z) {
+        this.scale[0] = x;
+        this.scale[1] = y;
+        this.scale[2] = z;
+
+        this.CalculateWorldMatrix();
+        this.UpdateLocalMatrix();
+
+        this.DispatchEvent(this.events.Update, this);
+    }
+
+    p.SetRotation = function(x, y, z){
+        this.rotation[0] = x % 360;
+        this.rotation[1] = y % 360;
+        this.rotation[2] = z % 360;
+
+        this.CalculateWorldMatrix();
+        this.UpdateLocalMatrix();
 
         this.DispatchEvent(this.events.Update, this);
     }
@@ -129,18 +167,93 @@ define(["../Component"], function (Component) {
         this.localPosition[1] = y;
         this.localPosition[2] = z;
 
-        scaliaEngine.utils.glMatrix.vec3.add(this.position, this.parent.position, localPosition);
+        this.CalculateLocalMatrix();
+
+        if(this.parent !== null)
+            scaliaEngine.utils.glMatrix.mat4.multiply(this.worldMatrix, this.parent.worldMatrix, this.localMatrix);
+        else
+            scaliaEngine.utils.glMatrix.mat4.copy(this.worldMatrix, this.localMatrix);
 
         this.DispatchEvent(this.events.Update, this);
     }
 
+    p.SetLocalScale = function(x, y, z){
+        this.localScale[0] = x;
+        this.localScale[1] = y;
+        this.localScale[2] = z;
 
-    p.SetScale = function (x, y, z) {
-        this.scale[0] = x;
-        this.scale[1] = y;
-        this.scale[2] = z;
-        scaliaEngine.utils.glMatrix.mat4.scale(this.matrix, this.matrix, this.scale);
+        this.CalculateLocalMatrix();
+
+        if(this.parent !== null)
+            scaliaEngine.utils.glMatrix.mat4.multiply(this.worldMatrix, this.parent.worldMatrix, this.localMatrix);
+        else
+            scaliaEngine.utils.glMatrix.mat4.copy(this.worldMatrix, this.localMatrix);
+
         this.DispatchEvent(this.events.Update, this);
+    }
+
+    p.SetLocalRotation = function(x, y, z){
+        this.localRotation[0] = x % 360;
+        this.localRotation[1] = y % 360;
+        this.localRotation[2] = z % 360;
+
+        this.CalculateLocalMatrix();
+
+        if(this.parent !== null)
+            scaliaEngine.utils.glMatrix.mat4.multiply(this.worldMatrix, this.parent.worldMatrix, this.localMatrix);
+        else
+            scaliaEngine.utils.glMatrix.mat4.copy(this.worldMatrix, this.localMatrix);
+
+        this.DispatchEvent(this.events.Update, this);
+    }
+
+    p.CalculateWorldMatrix = function(){
+        var mat4 = scaliaEngine.utils.glMatrix.mat4,
+            degreeToRad = Math.PI / 180;
+
+        mat4.identity(this.worldMatrix);
+
+        mat4.translate(this.worldMatrix, this.worldMatrix, this.position);
+
+        mat4.rotateX(this.worldMatrix, this.worldMatrix, this.rotation[0] * degreeToRad);
+        mat4.rotateY(this.worldMatrix, this.worldMatrix, this.rotation[1] * degreeToRad);
+        mat4.rotateZ(this.worldMatrix, this.worldMatrix, this.rotation[2] * degreeToRad);
+
+        mat4.scale(this.worldMatrix, this.worldMatrix, this.scale);
+
+        mat4.invert(this.worldToLocal, this.worldMatrix);
+    }
+
+    p.CalculateLocalMatrix = function(){
+        var mat4 = scaliaEngine.utils.glMatrix.mat4,
+            degreeToRad = Math.PI / 180;
+
+        mat4.identity(this.localMatrix);
+
+        mat4.translate(this.localMatrix, this.localMatrix, this.localPosition);
+
+        mat4.rotateX(this.localMatrix, this.localMatrix, this.localRotation[0] * degreeToRad);
+        mat4.rotateY(this.localMatrix, this.localMatrix, this.localRotation[1] * degreeToRad);
+        mat4.rotateZ(this.localMatrix, this.localMatrix, this.localRotation[2] * degreeToRad);
+
+        mat4.scale(this.localMatrix, this.localMatrix, this.localScale);
+    }
+
+    p.UpdateLocalMatrix = function(){
+        if(this.parent !== null)
+            scaliaEngine.utils.glMatrix.mat4.multiply(this.localMatrix, this.parent.worldToLocal, this.worldMatrix);
+        else
+            scaliaEngine.utils.glMatrix.mat4.copy(this.localMatrix, this.worldMatrix);
+
+        this.localPosition[0] = this.localMatrix[12];
+        this.localPosition[1] = this.localMatrix[13];
+        this.localPosition[2] = this.localMatrix[14];
+
+        this.localScale[0] = Math.sqrt(this.localMatrix[0] * this.localMatrix[0] + this.localMatrix[4] * this.localMatrix[4] + this.localMatrix[8] * this.localMatrix[8]);
+        this.localScale[1] = Math.sqrt(this.localMatrix[1] * this.localMatrix[1] + this.localMatrix[5] * this.localMatrix[5] + this.localMatrix[9] * this.localMatrix[9]);
+        this.localScale[2] = Math.sqrt(this.localMatrix[2] * this.localMatrix[2] + this.localMatrix[6] * this.localMatrix[6] + this.localMatrix[10] * this.localMatrix[10]);
+
+        //this.localRotation[0]
     }
 
     p.Rotate = function (x, y, z) {
@@ -156,7 +269,7 @@ define(["../Component"], function (Component) {
         //scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, 3.14/180*10, [1,1,1]);
         //scaliaEngine.utils.glMatrix.vec3.transformMat4(this.rotation, this.rotation, this.matrix);
         //this.position = [Math.random(), Math.random(), Math.random()];
-        this.DispatchEvent(this.events.Update, this);
+        //this.DispatchEvent(this.events.Update, this);
     }
 
     return Transform;

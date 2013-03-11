@@ -54,35 +54,45 @@ define(function () {
                 indicesCount = indices.length;
 
             for (var k = 0; k < indicesCount; k++) {
-                indice = indices[k];
-
-                vertices = indice;
-                verticesCount = indice.length;
-
-                scaliaEngine.utils.glMatrix.vec3.subtract(relativePosition, gameObject.transform.position, camera.transform.position);
+                vertices = indices[k];
 
                 this.context.beginPath();
                 vertice = vertices[0];
 
-                scaliaEngine.utils.glMatrix.vec3.scale(vertice1, vertice, 20);
+                scaliaEngine.utils.glMatrix.vec3.transformMat4(vertice1, vertice, camera.transform.worldToLocal);
 
-                scaliaEngine.utils.glMatrix.vec3.add(vertice1, relativePosition, vertice1);
                 x = ((vertice1[0] / cameraComponent.size[0] + 0.5) * this.size[0]);
                 y = ((vertice1[1] / cameraComponent.size[1] + 0.5) * this.size[1]);
+                this.context.moveTo(x, y);
 
-                for (j = 1; j <= verticesCount; j++) {
-                    this.context.moveTo(x, y);
-                    vertice = vertices[j == verticesCount ? 0 : j];
+                vertice = vertices[1];
 
-                    scaliaEngine.utils.glMatrix.vec3.scale(vertice1, vertice, 20);
+                scaliaEngine.utils.glMatrix.vec3.transformMat4(vertice1, vertice, camera.transform.worldToLocal);
+
+                x = ((vertice1[0] / cameraComponent.size[0] + 0.5) * this.size[0]);
+                y = ((vertice1[1] / cameraComponent.size[1] + 0.5) * this.size[1]);
+                this.context.lineTo(x, y);
+                this.context.moveTo(x, y);
+                vertice = vertices[2];
 
 
-                    scaliaEngine.utils.glMatrix.vec3.add(vertice1, relativePosition, vertice1);
-                    x = ((vertice1[0] / cameraComponent.size[0] + 0.5) * this.size[0]);
-                    y = ((vertice1[1] / cameraComponent.size[1] + 0.5) * this.size[1]);
+                scaliaEngine.utils.glMatrix.vec3.transformMat4(vertice1, vertice, camera.transform.worldToLocal);
 
-                    this.context.lineTo(x, y);
-                }
+                x = ((vertice1[0] / cameraComponent.size[0] + 0.5) * this.size[0]);
+                y = ((vertice1[1] / cameraComponent.size[1] + 0.5) * this.size[1]);
+                this.context.lineTo(x, y);
+                this.context.moveTo(x, y);
+
+                vertice = vertices[0];
+
+
+                scaliaEngine.utils.glMatrix.vec3.transformMat4(vertice1, vertice, camera.transform.worldToLocal);
+
+                x = ((vertice1[0] / cameraComponent.size[0] + 0.5) * this.size[0]);
+                y = ((vertice1[1] / cameraComponent.size[1] + 0.5) * this.size[1]);
+                this.context.lineTo(x, y);
+                this.context.moveTo(x, y);
+
                 this.context.closePath();
                 this.context.stroke();
             }

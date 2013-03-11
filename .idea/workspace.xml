@@ -19,27 +19,27 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-strict.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
-    <file path="/Viewport.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362433150531" ignored="false" />
-    <file path="/main.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362524723279" ignored="false" />
+    <file path="/Viewport.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362873001378" ignored="false" />
+    <file path="/main.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362927791430" ignored="false" />
     <file path="/CameraComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429424910" ignored="false" />
     <file path="/RectangleShape.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361992806384" ignored="false" />
     <file path="/GameObject.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429570961" ignored="false" />
     <file path="/BallObject.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361994012196" ignored="false" />
-    <file path="/TransformComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362562462805" ignored="false" />
+    <file path="/TransformComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362936522592" ignored="false" />
     <file path="/Component.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429497262" ignored="false" />
     <file path="/Transform.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362426964684" ignored="false" />
     <file path="/Game.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362425757565" ignored="false" />
     <file path="/Logic.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362425798251" ignored="false" />
     <file path="/WorldObject.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362426506613" ignored="false" />
-    <file path="/Cube.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362432165275" ignored="false" />
+    <file path="/Cube.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362875933816" ignored="false" />
     <file path="/CubeShape.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362427681543" ignored="false" />
     <file path="/Shape.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362427776904" ignored="false" />
     <file path="/engine.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362428817526" ignored="false" />
-    <file path="/Camera.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429034814" ignored="false" />
+    <file path="/Camera.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362869076010" ignored="false" />
     <file path="/World.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362429402311" ignored="false" />
-    <file path="/ShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362524220427" ignored="false" />
-    <file path="/CubeShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362523659554" ignored="false" />
-    <file path="/EventManager.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362522430636" ignored="false" />
+    <file path="/ShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362927850969" ignored="false" />
+    <file path="/CubeShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362872542898" ignored="false" />
+    <file path="/EventManager.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1362914046491" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,16 +62,16 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="28" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+            <state line="20" column="32" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gl-matrix.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
+      <file leaf-file-name="GameObject.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2872" column="42" selection-start="73833" selection-end="73833" vertical-scroll-proportion="0.0">
+            <state line="0" column="141" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="Viewport.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/Viewport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="79" selection-start="2251" selection-end="2251" vertical-scroll-proportion="0.0">
+            <state line="61" column="80" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -95,46 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CameraComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/CameraComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="30" selection-start="1382" selection-end="1393" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Cube.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="65" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransformComponent.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="21" selection-start="630" selection-end="630" vertical-scroll-proportion="0.34129694">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/EventManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="49" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShapeComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/ShapeComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="80" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
+            <state line="12" column="8" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -143,7 +107,43 @@
       <file leaf-file-name="CubeShapeComponent.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/components/CubeShapeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="1310" selection-end="1412" vertical-scroll-proportion="0.0">
+            <state line="68" column="24" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransformComponent.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="155" column="0" selection-start="3319" selection-end="3319" vertical-scroll-proportion="-0.49488056">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="World.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/World.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="32" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gl-matrix.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3146" column="5" selection-start="81011" selection-end="81011" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShapeComponent.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/components/ShapeComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="131" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,19 +162,19 @@
         <option value="$PROJECT_DIR$/engine/components/Shape.js" />
         <option value="$PROJECT_DIR$/engine/Logic.js" />
         <option value="$PROJECT_DIR$/engine/engine.js" />
-        <option value="$PROJECT_DIR$/engine/gameObjects/Camera.js" />
         <option value="$PROJECT_DIR$/engine/World.js" />
         <option value="$PROJECT_DIR$/engine/components/CameraComponent.js" />
         <option value="$PROJECT_DIR$/engine/GameObject.js" />
         <option value="$PROJECT_DIR$/engine/Component.js" />
         <option value="$PROJECT_DIR$/engine/utils/base.js" />
-        <option value="$PROJECT_DIR$/engine/gameObjects/Cube.js" />
-        <option value="$PROJECT_DIR$/engine/EventManager.js" />
-        <option value="$PROJECT_DIR$/engine/components/ShapeComponent.js" />
+        <option value="$PROJECT_DIR$/engine/gameObjects/Camera.js" />
         <option value="$PROJECT_DIR$/engine/components/CubeShapeComponent.js" />
         <option value="$PROJECT_DIR$/engine/Viewport.js" />
+        <option value="$PROJECT_DIR$/engine/EventManager.js" />
+        <option value="$PROJECT_DIR$/engine/components/ShapeComponent.js" />
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/engine/components/TransformComponent.js" />
+        <option value="$PROJECT_DIR$/engine/gameObjects/Cube.js" />
       </list>
     </option>
   </component>
@@ -340,8 +340,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -371,6 +371,9 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value="SHOW_INHERITED_FROM_OBJECT" />
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -404,8 +407,8 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15181866" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14971007" sideWeight="0.5529801" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14971007" sideWeight="0.4392936" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -491,9 +494,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/engine/engine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="42" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="42" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/Graphics.js">
@@ -501,38 +502,26 @@
         <state line="29" column="5" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/World.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="32" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="141" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/utils/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="55" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+        <state line="0" column="55" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/components/CameraComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="30" selection-start="1382" selection-end="1393" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" />
+        <state line="5" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
+    <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="65" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/CameraComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="30" selection-start="1382" selection-end="1393" vertical-scroll-proportion="0.0">
+        <state line="0" column="141" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -544,51 +533,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/CubeShapeComponent.js">
+    <entry file="file://$PROJECT_DIR$/engine/EventManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="1310" selection-end="1412" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="33" column="61" selection-start="857" selection-end="857" vertical-scroll-proportion="0.5631399" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/Viewport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="79" selection-start="2251" selection-end="2251" vertical-scroll-proportion="0.0">
+        <state line="61" column="80" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/engine/World.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="28" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+        <state line="32" column="32" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/EventManager.js">
+    <entry file="file://$PROJECT_DIR$/engine/components/CubeShapeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="49" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
+        <state line="68" column="24" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/components/ShapeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="80" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
+        <state line="47" column="131" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2872" column="42" selection-start="73833" selection-end="73833" vertical-scroll-proportion="0.0">
+        <state line="3146" column="5" selection-start="81011" selection-end="81011" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="8" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="32" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="21" selection-start="630" selection-end="630" vertical-scroll-proportion="0.34129694">
+        <state line="155" column="0" selection-start="3319" selection-end="3319" vertical-scroll-proportion="-0.49488056">
           <folding />
         </state>
       </provider>

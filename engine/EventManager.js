@@ -30,5 +30,9 @@ define(function () {
             listeners[i](sender);
     }
 
+    p.RemoveListener = function(event, callback){
+        throw "EventManager.RemoveListener: not implemented";
+    }
+
     return EventManager;
 });
