@@ -10,7 +10,8 @@ define(["../GameObject", "../components/CubeShapeComponent"], function (GameObje
     p.Tick = function(){
         GameObject.prototype.Tick.call(this);
 
-        this.transform.SetRotation(this.transform.rotation[0] + 10, 0,0);
+        if(this.transform.parent === null)
+            this.transform.Rotate(1/20, 1/2, 0);
     }
 
     return Cube;

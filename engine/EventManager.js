@@ -24,7 +24,10 @@ define(function () {
 
     p.DispatchEvent = function (event, sender) {
         var listeners = this.eventListeners[event],
-            listenersCount = listeners ? listeners.length : 0;
+            listenersCount = listeners === undefined ? 0 : listeners.length;
+
+        if(listenersCount === 0)
+            return;
 
         for (var i = 0; i < listenersCount; i++)
             listeners[i](sender);

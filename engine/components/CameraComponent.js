@@ -11,6 +11,7 @@ define(["../Component"], function(Component){
     function CameraComponent(gameObject){
         Component.call(this, gameObject);
         this.visibles = [];
+        this.projectionMatrix = [];
     }
 
     var p = CameraComponent.prototype = Object.create(Component.prototype);
@@ -21,7 +22,9 @@ define(["../Component"], function(Component){
      */
     p.visibles = null;
 
-    p.size = [100, 100];
+    p.size = [1000, 1000];
+
+    p.projectionMatrix = null;
 
     p.IsVisible = function (gameObject) {
         var posX = gameObject.transform.position[0],
@@ -35,7 +38,7 @@ define(["../Component"], function(Component){
     }
 
     p.DetectVisibles = function(){
-        this.visibles = [];
+        //this.visibles = [];
 
         //TODO: do search starting from camera, rather from world root. Think about using OctTree
 
@@ -54,6 +57,16 @@ define(["../Component"], function(Component){
     p.Tick = function(){
         this.DetectVisibles();
         //scaliaEngine.utils.glMatrix.mat4.rotate(this.matrix, this.matrix, Math.PI/180 * 1, [1,1,1]);
+    }
+
+    p.SetSize = function(width, height){
+        this.size[0] = width;
+        this.size[1] = height;
+
+        var mat4 = scaliaEngine.utils.glMatrix.mat4;
+
+        //mat4.identity(this.projectionMatrix);
+        mat4.ortho(this.projectionMatrix, -this.size[0],this.size[0],-this.size[1],this.size[1],0,100);
     }
 
     return CameraComponent;
