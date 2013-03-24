@@ -109,6 +109,7 @@ define(["../Component"], function (Component) {
     p.AddChildren = function (children) {
         children.parent = this;
         this.children[this.children.length] = children;
+        this.CalculateLocalMatrix();
     }
 
     /**
@@ -133,6 +134,7 @@ define(["../Component"], function (Component) {
     }
 
     p.SetRotation = function(x, y, z){
+        //wtf?! where's quat?!
         this.rotation[0] = x % 360;
         this.rotation[1] = y % 360;
         this.rotation[2] = z % 360;
@@ -170,6 +172,10 @@ define(["../Component"], function (Component) {
         scaliaEngine.utils.glMatrix.quat.rotateZ(this.quatRotation, this.quatRotation, z * degreeToRad);
 
         this.CalculateLocalMatrix();
+    }
+
+    p.Translate = function(x, y, z){
+        this.SetPosition(this.position[0] + x, this.position[1] + y, this.position[2] + z);
     }
 
     /**

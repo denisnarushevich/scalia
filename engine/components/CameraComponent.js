@@ -27,6 +27,8 @@ define(["../Component"], function(Component){
     p.projectionMatrix = null;
 
     p.IsVisible = function (gameObject) {
+        return true;
+
         var posX = gameObject.transform.position[0],
             posY = gameObject.transform.position[1];
 
@@ -66,7 +68,7 @@ define(["../Component"], function(Component){
         var mat4 = scaliaEngine.utils.glMatrix.mat4;
 
         //mat4.identity(this.projectionMatrix);
-        mat4.ortho(this.projectionMatrix, -this.size[0],this.size[0],-this.size[1],this.size[1],0,100);
+        mat4.ortho(this.projectionMatrix, -this.size[0]/2,this.size[0]/2,this.size[1]/2,-this.size[1]/2,0,10000);
     }
 
     return CameraComponent;

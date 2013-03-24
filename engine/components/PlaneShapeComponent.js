@@ -1,24 +1,26 @@
 define(["./ShapeComponent"], function(Shape){
     /**
-     * @param {GameObject} gameObject
+     * @param {PlaneObject} Plane
      * @constructor
      */
     function PlaneShape(gameObject) {
         Shape.call(this, gameObject);
-
-        //triangle strip of cube. http://codedot.livejournal.com/109158.html
-        this.vertices = [
-            [0,0,0],
-            [0,0,1],
-        ];
-
-        this.faces = [
-            [0,2,4],
-            [2,4,6],
-        ];
     }
 
     var p = PlaneShape.prototype = Object.create(Shape.prototype);
+
+    p.vertices = [
+        [-1,0,-1],
+        [1,0,-1],
+        [-1,0,1],
+        [1,0,1]
+    ];
+
+    p.faces = [
+        [0,1,2], //front1
+        [1,3,2] //front2
+    ]
+
 
     return PlaneShape;
 });

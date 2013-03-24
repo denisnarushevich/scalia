@@ -25,9 +25,22 @@
             display: block;
             height: 100%;
             width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        #debug {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 40px;
+            background: #ddd;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
+<div id="debug"></div>
 </body>
 </html>

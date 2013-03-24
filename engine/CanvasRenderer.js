@@ -13,6 +13,10 @@ define(function () {
     p.Render = function (viewport) {
         this.Project(viewport);
         this.RenderFaces(viewport);
+
+        //Detect visible GO's by their bound box intersection with clipbox
+
+        //
     }
 
     p.Project = function (viewport) {
@@ -26,11 +30,33 @@ define(function () {
             allVertices = this.vertices,
             allFaces = this.faces,
             offset = 0,
-            facesOffset = 0;
+            facesOffset = 0,
+            vector = [0,0,0];
 
         //put all vertices and faces each in single list
         for (i = 0; i < gameObjectsCount; i++) {
             gameObject = gameObjects[i];
+
+            if(gameObject.shape === undefined)
+                continue;
+
+            glMatrix.vec3.transformMat4(vector, vector, gameObject.transform.worldMatrix);
+            glMatrix.vec3.transformMat4(vector, vector, camera.transform.worldToLocal);
+            //document.getElementById("debug").innerHTML = vector.toString();
+            glMatrix.vec3.transformMat4(vector, vector, cameraComponent.projectionMatrix);
+            //document.getElementById("debug").innerHTML += "<br>"+vector.toString();
+            var z = vector[2],
+                y = vector[1],
+                x = vector[0];
+
+            if(z > 1 || z < -1 || x > 1 || x < -1 || y > 1 || y < -1){
+                //console.log("skip", x, y, z);
+                continue;
+            }
+
+            //console.log(vector);
+
+
             vertices = gameObject.shape.vertices;
             verticesCount = vertices.length;
             faces = gameObject.shape.faces;
@@ -48,8 +74,8 @@ define(function () {
                 glMatrix.vec3.transformMat4(localVertex, localVertex, camera.transform.worldToLocal);
                 glMatrix.vec3.transformMat4(localVertex, localVertex, cameraComponent.projectionMatrix);
 
-                localVertex[0] = localVertex[0] * viewport.size[0] + viewport.size[0] / 2;
-                localVertex[1] = localVertex[1] * viewport.size[1] + viewport.size[1] / 2;
+                localVertex[0] = localVertex[0] * viewport.size[0]/2 + viewport.size[0] / 2;
+                localVertex[1] = localVertex[1] * viewport.size[1]/2 + viewport.size[1] / 2;
             }
 
             for (j = 0; j < facesCount; j++) {
@@ -70,7 +96,7 @@ define(function () {
         }
 
         this.faces.sort(function(a,b){
-           return allVertices[a[0]][2] < allVertices[b[0]][2] ? -1 : 1;
+           return allVertices[a[0]][2] > allVertices[b[0]][2] ? -1 : 1;
         });
 
         //clears old data from unused indexes of vertex list.
@@ -88,7 +114,7 @@ define(function () {
             verticesCount = vertices.length,
             context = viewport.context;
 
-        //context.fillStyle = "gray";
+        context.fillStyle = "green";
         //context.strokeStyle = "black";
         context.clearRect(0, 0, viewport.size[0], viewport.size[1]);
 
@@ -108,7 +134,10 @@ define(function () {
             //alert(face[0]+";"+verticesCount);
             //alert("rgb("+(face[0]/verticesCount*255)|0+","+(face[1]/verticesCount*255)|0+","+(face[2]/verticesCount*255)|0+")");
 
-            context.fillStyle = "rgb("+((face[0]+100/verticesCount*255)|0)%255+","+((face[1]+1002/verticesCount*255)|0)%255+","+((face[2]+1900/verticesCount*255)|0)%255+")";
+            //context.fillStyle = "rgb("+((face[0]+100/verticesCount*255)|0)%255+","+((face[1]+1002/verticesCount*255)|0)%255+","+((face[2]+1900/verticesCount*255)|0)%255+")";
+
+            var green = (140 + i*3) % 255;
+            context.fillStyle = "rgb(0,"+green+",0)";
             context.lineWidth = 0;
             context.fill();
             context.stroke();
@@ -124,6 +153,10 @@ define(function () {
 
         return vr[2]<0;
         //console.log(vr);
+    }
+
+    p.DrawGameObject = function(gameObject){
+
     }
 
     return CanvasRenderer;
