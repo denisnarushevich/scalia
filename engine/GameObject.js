@@ -1,4 +1,4 @@
-define(['./components/TransformComponent', './components/CameraComponent', "./components/ShapeComponent"], function (Transform, Camera, Shape) {
+define(['./components/TransformComponent', './components/CameraComponent', "./components/ShapeComponent", "./components/MeshComponent"], function (Transform, Camera, Shape, Mesh) {
     /**
      * Base object
      * @constructor
@@ -56,6 +56,8 @@ define(['./components/TransformComponent', './components/CameraComponent', "./co
             this.camera = component;
         }else if(component instanceof Shape){
             this.shape = component;
+        }else if(component instanceof Mesh){
+            this.mesh = component;
         }
 
         this.components[this.componentsCount++] = component;

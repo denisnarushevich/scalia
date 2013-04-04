@@ -12,7 +12,7 @@ require(["./engine/engine"], function (scaliaEngine) {
         cube.transform.SetPosition(0,80,0);
         cube.transform.SetScale(50,50,50);
 
-        N = 100;
+        N = 40;
 
         for(var i = 0; i < N; i++){
             for(var j = 0; j < N; j++){

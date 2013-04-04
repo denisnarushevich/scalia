@@ -10,48 +10,13 @@ define(function () {
 
     p.vertices = null;
 
-    p.viewport = null;
-
     p.Render = function (viewport) {
-        this.viewport = viewport;
-        this.viewport.context.clearRect(0, 0, viewport.size[0], viewport.size[1]);
-        var i, j, gameObject, vertices, vertex, verticesCount,
-            faces, facesCount, face, localVertex, localFace,
-            glMatrix = scaliaEngine.utils.glMatrix,
-            camera = viewport.camera,
-            cameraComponent = camera.camera,
-            gameObjects = cameraComponent.visibles,
-            gameObjectsCount = gameObjects.length,
-            allVertices = this.vertices,
-            allFaces = this.faces,
-            offset = 0,
-            facesOffset = 0,
-            vector = [0, 0, 0];
-
-        for(var i = 0; i < gameObjectsCount; i++){
-            var gameObject = gameObjects[i];
-            if(gameObject.mesh !== undefined){
-                this.RenderMesh(gameObject.mesh);
-            }
-        }
-
-        //put all vertices and faces each in single list
-        ///for (i = 0; i < gameObjectsCount; i++) {
-
-        //this.Project(viewport);
-        //this.RenderFaces(viewport);
+        this.Project(viewport);
+        this.RenderFaces(viewport);
 
         //Detect visible GO's by their bound box intersection with clipbox
 
-        //sort GO's by z (optional)
-
-        //foreach go:
-
-        //transform all vertices
-
-        //detect front-faced faces/polygons
-
-        //draw face3/face4
+        //
     }
 
     p.Project = function (viewport) {
@@ -66,13 +31,13 @@ define(function () {
             allFaces = this.faces,
             offset = 0,
             facesOffset = 0,
-            vector = [0, 0, 0];
+            vector = [0,0,0];
 
         //put all vertices and faces each in single list
         for (i = 0; i < gameObjectsCount; i++) {
             gameObject = gameObjects[i];
 
-            if (gameObject.shape === undefined)
+            if(gameObject.shape === undefined)
                 continue;
 
             glMatrix.vec3.transformMat4(vector, vector, gameObject.transform.worldMatrix);
@@ -84,7 +49,7 @@ define(function () {
                 y = vector[1],
                 x = vector[0];
 
-            if (z > 1 || z < -1 || x > 1 || x < -1 || y > 1 || y < -1) {
+            if(z > 1 || z < -1 || x > 1 || x < -1 || y > 1 || y < -1){
                 //console.log("skip", x, y, z);
                 continue;
             }
@@ -109,8 +74,8 @@ define(function () {
                 glMatrix.vec3.transformMat4(localVertex, localVertex, camera.transform.worldToLocal);
                 glMatrix.vec3.transformMat4(localVertex, localVertex, cameraComponent.projectionMatrix);
 
-                localVertex[0] = localVertex[0] * viewport.size[0] / 2 + viewport.size[0] / 2;
-                localVertex[1] = localVertex[1] * viewport.size[1] / 2 + viewport.size[1] / 2;
+                localVertex[0] = localVertex[0] * viewport.size[0]/2 + viewport.size[0] / 2;
+                localVertex[1] = localVertex[1] * viewport.size[1]/2 + viewport.size[1] / 2;
             }
 
             for (j = 0; j < facesCount; j++) {
@@ -125,7 +90,7 @@ define(function () {
                 localFace[1] = face[1] + offset;
                 localFace[2] = face[2] + offset;
 
-                if (face[3] !== undefined)
+                if(face[3] !== undefined)
                     localFace[3] = face[3] + offset;
             }
 
@@ -133,8 +98,8 @@ define(function () {
             facesOffset += facesCount;
         }
 
-        this.faces.sort(function (a, b) {
-            return allVertices[a[0]][2] > allVertices[b[0]][2] ? -1 : 1;
+        this.faces.sort(function(a,b){
+           return allVertices[a[0]][2] > allVertices[b[0]][2] ? -1 : 1;
         });
 
         //clears old data from unused indexes of vertex list.
@@ -142,7 +107,7 @@ define(function () {
             allVertices[i][0] = undefined;
     }
 
-    var randcolor = ["red", "green", "blue"];
+    var randcolor = ["red","green","blue"];
 
     p.RenderFaces = function (viewport) {
         var i, j, face, vertice,
@@ -159,15 +124,15 @@ define(function () {
         for (i = 0; i < facesCount; i++) {
             face = faces[i];
 
-            if (this.IsBackFace(vertices[face[0]], vertices[face[1]], vertices[face[2]]))
-                continue;
-
+            if(this.IsBackFace(vertices[face[0]], vertices[face[1]], vertices[face[2]]))
+            continue;
+            
             //draw tris
             context.beginPath();
             context.moveTo(vertices[face[0]][0] | 0, vertices[face[0]][1] | 0);
             context.lineTo(vertices[face[1]][0] | 0, vertices[face[1]][1] | 0);
             context.lineTo(vertices[face[2]][0] | 0, vertices[face[2]][1] | 0);
-            if (face[3] !== undefined)
+            if(face[3] !== undefined)
                 context.lineTo(vertices[face[3]][0] | 0, vertices[face[3]][1] | 0);
             context.closePath();
 
@@ -176,86 +141,27 @@ define(function () {
 
             //context.fillStyle = "rgb("+((face[0]+100/verticesCount*255)|0)%255+","+((face[1]+1002/verticesCount*255)|0)%255+","+((face[2]+1900/verticesCount*255)|0)%255+")";
 
-            var green = (140 + i * 3) % 255;
-            context.fillStyle = "rgb(0," + green + ",0)";
+            var green = (140 + i*3) % 255;
+            context.fillStyle = "rgb(0,"+green+",0)";
             context.lineWidth = 0;
             context.fill();
             context.stroke();
         }
     }
 
-    var va = [], vb = [], vr = [];
-    p.IsBackFace = function (v1, v2, v3) {
+    var va = [],vb = [], vr = [];
+    p.IsBackFace = function(v1,v2,v3){
         var vec3 = scaliaEngine.utils.glMatrix.vec3;
-
-        vec3.subtract(va, v1, v2);
-        vec3.subtract(vb, v1, v3);
+        vec3.subtract(va, v1,v2);
+        vec3.subtract(vb, v1,v3);
         vec3.cross(vr, va, vb);
 
-        return vr[2] < 0;
+        return vr[2]<0;
+        //console.log(vr);
     }
 
-    p.RenderMesh = function (mesh) {
-        var vertices = [];
+    p.DrawGameObject = function(gameObject){
 
-        var glMatrix = scaliaEngine.utils.glMatrix;
-
-        for (var i = 0; i < mesh.vertices.length; i++) {
-            var vertex = mesh.vertices[i];
-            var transformedVertex = vertices[i] = [];
-
-            glMatrix.vec3.transformMat4(transformedVertex, vertex, mesh.gameObject.transform.worldMatrix);
-            glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, this.viewport.camera.transform.worldToLocal);
-            glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, this.viewport.camera.camera.projectionMatrix);
-
-            transformedVertex[0] = transformedVertex[0] * this.viewport.size[0] / 2 + this.viewport.size[0] / 2;
-            transformedVertex[1] = transformedVertex[1] * this.viewport.size[1] / 2 + this.viewport.size[1] / 2;
-        }
-
-        for (var i = 0; i < mesh.faces.length; i++) {
-            var face = mesh.faces[i];
-
-            if(this.IsBackFace(vertices[face[0]], vertices[face[1]], vertices[face[2]])) continue;
-
-            if(face.length === 3){
-                this.RenderFace3(vertices[face[0]], vertices[face[1]], vertices[face[2]], mesh.gameObject.color);
-            }else if(face.length === 4){
-                this.RenderFace4(vertices[face[0]], vertices[face[1]], vertices[face[2]], vertices[face[3]], mesh.gameObject.color);
-            }else{
-                throw "Face has wrong vertex count";
-            }
-        }
-    }
-
-    p.RenderFace3 = function (v1, v2, v3, color) {
-        var ctx = this.viewport.context;
-
-        ctx.fillStyle = color;
-
-        ctx.beginPath();
-        ctx.moveTo(v1[0], v1[1]);
-        ctx.lineTo(v2[0], v2[1]);
-        ctx.lineTo(v3[0], v3[1]);
-        ctx.closePath();
-
-        ctx.fill();
-        ctx.stroke();
-    }
-
-    p.RenderFace4 = function (v1, v2, v3, v4, color) {
-        var ctx = this.viewport.context;
-
-        ctx.fillStyle = color;
-
-        ctx.beginPath();
-        ctx.moveTo(v1[0], v1[1]);
-        ctx.lineTo(v2[0], v2[1]);
-        ctx.lineTo(v3[0], v3[1]);
-        ctx.lineTo(v4[0], v4[1]);
-        ctx.closePath();
-
-        ctx.fill();
-        ctx.stroke();
     }
 
     return CanvasRenderer;
