@@ -32,6 +32,8 @@ define(function () {
             var gameObject = gameObjects[i];
             if(gameObject.mesh !== undefined){
                 this.RenderMesh(gameObject.mesh);
+            }else if(gameObject.sprite !== undefined){
+                this.RenderSprite(gameObject.sprite);
             }
         }
 
@@ -195,6 +197,19 @@ define(function () {
         return vr[2] < 0;
     }
 
+    p.RenderSprite = function(sprite){
+        transformedVertex = [0,0,0];
+        scaliaEngine.utils.glMatrix.vec3.copy(transformedVertex, transformedVertex);
+        scaliaEngine.utils.glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, sprite.gameObject.transform.worldMatrix);
+        scaliaEngine.utils.glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, this.viewport.camera.transform.worldToLocal);
+        scaliaEngine.utils.glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, this.viewport.camera.camera.projectionMatrix);
+
+        transformedVertex[0] = transformedVertex[0] * this.viewport.size[0] / 2 + this.viewport.size[0] / 2 - sprite.pivot[0];
+        transformedVertex[1] = transformedVertex[1] * this.viewport.size[1] / 2 + this.viewport.size[1] / 2 - sprite.pivot[1];
+
+        this.RenderImage(transformedVertex, sprite.image, 0, 0, sprite.width, sprite.height);
+    }
+
     p.RenderMesh = function (mesh) {
         var vertices = [];
 
@@ -202,9 +217,11 @@ define(function () {
 
         for (var i = 0; i < mesh.vertices.length; i++) {
             var vertex = mesh.vertices[i];
+
             var transformedVertex = vertices[i] = [];
 
-            glMatrix.vec3.transformMat4(transformedVertex, vertex, mesh.gameObject.transform.worldMatrix);
+            glMatrix.vec3.add(transformedVertex, vertex, mesh.pivot);
+            glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, mesh.gameObject.transform.worldMatrix);
             glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, this.viewport.camera.transform.worldToLocal);
             glMatrix.vec3.transformMat4(transformedVertex, transformedVertex, this.viewport.camera.camera.projectionMatrix);
 
@@ -215,12 +232,15 @@ define(function () {
         for (var i = 0; i < mesh.faces.length; i++) {
             var face = mesh.faces[i];
 
-            if(this.IsBackFace(vertices[face[0]], vertices[face[1]], vertices[face[2]])) continue;
+            if(face.length !== 2)
+                if(this.IsBackFace(vertices[face[0]], vertices[face[1]], vertices[face[2]])) continue;
 
             if(face.length === 3){
-                this.RenderFace3(vertices[face[0]], vertices[face[1]], vertices[face[2]], mesh.gameObject.color);
+                this.RenderFace3(vertices[face[0]], vertices[face[1]], vertices[face[2]], mesh.colors[mesh.faceColors[i][1]]);
             }else if(face.length === 4){
                 this.RenderFace4(vertices[face[0]], vertices[face[1]], vertices[face[2]], vertices[face[3]], mesh.gameObject.color);
+            }else if(face.length === 2){
+                this.RenderLine(vertices[face[0]], vertices[face[1]], mesh.gameObject.color, 1);
             }else{
                 throw "Face has wrong vertex count";
             }
@@ -239,7 +259,7 @@ define(function () {
         ctx.closePath();
 
         ctx.fill();
-        ctx.stroke();
+        //ctx.stroke();
     }
 
     p.RenderFace4 = function (v1, v2, v3, v4, color) {
@@ -255,6 +275,25 @@ define(function () {
         ctx.closePath();
 
         ctx.fill();
+        //ctx.stroke();
+    }
+
+    p.RenderImage = function(v, image, x, y, w, h){
+        var ctx = this.viewport.context;
+        ctx.drawImage(image, x | 0, y | 0, w, h, v[0] | 0, v[1] | 0, w, h);
+    }
+
+    p.RenderLine = function(v0, v1, color, width){
+        var ctx = this.viewport.context;
+
+        ctx.strokeStyle = color;
+
+        ctx.beginPath();
+        ctx.moveTo(v0[0], v0[1]);
+        ctx.lineTo(v1[0], v1[1]);
+        ctx.closePath();
+
+        ctx.lineWidth = width;
         ctx.stroke();
     }
 

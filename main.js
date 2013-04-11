@@ -7,73 +7,67 @@ require(["./engine/engine"], function (scaliaEngine) {
         var myGame = new scaliaEngine.Game();
 
 
+
         var cube = window.cube = new scaliaEngine.gameObjects.Cube();
         myGame.logic.world.AddGameObject(cube);
-        cube.transform.SetPosition(0,80,0);
-        cube.transform.SetScale(50,50,50);
+        cube.transform.SetPosition(0,0,0);
+        cube.transform.SetScale(10,10,10);
 
-        N = 40;
+        N = 100;
 
         for(var i = 0; i < N; i++){
             for(var j = 0; j < N; j++){
                 var child = new scaliaEngine.gameObjects.Plane();
-                child.transform.Translate((i - N/2) * 40,0, (j - N/2) * 40);
-                child.transform.SetScale(20, 1, 20);
+                child.transform.Translate((i - N/2) * 64,0, (j - N/2) * 64);
+                child.transform.SetScale(64, 1, 64);
                 myGame.logic.world.AddGameObject(child);
             }
         }
 
-                                           /*
-        for(var i = 0; i < 300; i++){
-            var child = window.child = new scaliaEngine.gameObjects.Cube();
-            scaliaEngine.utils.glMatrix.vec3.random(child.transform.position, 40);
 
-            myGame.logic.world.AddGameObject(child);
-            child.transform.SetScale(Math.random()*4|0 + 1,Math.random()*4|0 + 1,Math.random()*4|0 + 1);
-            child.transform.Rotate((Math.random()*360) | 0, (Math.random()*360) | 0, (Math.random()*360) | 0);
+        var axis = window.axis = new scaliaEngine.gameObjects.Axis();
+        myGame.logic.world.AddGameObject(axis);
 
-            cube.transform.AddChildren(child.transform);
-        }
-                                             */
+
+
         var size = [document.width, document.height];
 
         var cameraObject = window.camera = new scaliaEngine.gameObjects.Camera();
         cameraObject.camera.SetSize(document.width, document.height);
         //cameraObject.camera.SetSize(100, 100);
         cameraObject.transform.SetPosition(700,1000,700);
-        cameraObject.transform.Rotate(0,45,0);
-        cameraObject.transform.Rotate(-32.264,0,0);
+        cameraObject.transform.Rotate(-32.264,45,0);
 
-        document.onkeyup = function(e){
+        document.onkeydown = function(e){
             if(e.keyCode == 65){ //a
-                camera.transform.Translate(-10,0,0);
+                camera.transform.Translate(-10,0,10, "world");
             }else if(e.keyCode == 68){ //d
-                camera.transform.Translate(10,0,0);
+                camera.transform.Translate(10,0,-10, "world");
             }else if(e.keyCode == 87){ //w
-                camera.transform.Translate(0,0,-10);
+                camera.transform.Translate(-10,0,-10, "world");
             }
             else if(e.keyCode == 83){ //s
-                camera.transform.Translate(0,0,10);
+                camera.transform.Translate(10,0,10, "world");
             }
         }
 
         mousepressed = false;
 
-        document.onmousedown = function(){
+        var x0, y0;
+
+        document.onmousedown = function(e){
             mousepressed = true;
+            x0 = e.pageX;
+            y0 = e.pageY;
         }
 
         document.onmouseup = function(){
             mousepressed = false;
         }
 
-        var x0, y0;
+
         document.onmousemove = function(e){
             if(!mousepressed)return;
-            if(x0 === undefined || y0 === undefined){
-                x0 = e.pageX;
-                y0 = e.pageY;
-            }
 
             var x = e.pageX;
             var y = e.pageY;
@@ -84,7 +78,7 @@ require(["./engine/engine"], function (scaliaEngine) {
             x0 = x;
             y0 = y;
               //console.log(dy);
-            camera.transform.Rotate(-dy,-dx,0);
+            camera.transform.Translate(-dx-dy,0,dx-dy, "world");
         }
 
         myGame.logic.world.AddGameObject(cameraObject);
@@ -96,5 +90,9 @@ require(["./engine/engine"], function (scaliaEngine) {
         document.body.appendChild(viewport.canvas);
 
         window.myGame = myGame;
+
+        var a = setInterval(function(){
+            camera.transform.Rotate(0,1/4,0, "world");
+        },40);
     });
 });

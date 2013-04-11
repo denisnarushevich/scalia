@@ -8,7 +8,7 @@ define(["../GameObject", "../components/PlaneMeshComponent"], function (GameObje
             g = (Math.random() * 255) | 0,
             b = (Math.random() * 255) | 0;
 
-        this.color = "rgb("+r+","+g+","+b+")";
+        this.color = "rgb("+(r%100)+","+(105+g%55)+",0)";
     }
 
     var p = Plane.prototype = Object.create(GameObject.prototype);

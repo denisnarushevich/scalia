@@ -16,9 +16,11 @@ define(["./ShapeComponent"], function(Shape){
         [1,0,1]
     ];
 
+    p.colors = null;
+
     p.faces = [
         [0,1,3,2], //front1
-    ]
+    ];
 
 
     return PlaneShape;

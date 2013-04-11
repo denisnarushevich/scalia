@@ -10,9 +10,9 @@ define(["./MeshComponent"], function(MeshComponent){
     var p = PlaneMeshComponent.prototype = Object.create(MeshComponent.prototype);
 
     p.vertices = [
-        [-1,0,-1],
-        [1,0,-1],
-        [-1,0,1],
+        [0,0,0],
+        [1,0,0],
+        [0,0,1],
         [1,0,1]
     ];
 

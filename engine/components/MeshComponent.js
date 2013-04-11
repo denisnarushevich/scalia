@@ -7,7 +7,11 @@ define(["../Component"], function (Component) {
 
     p.vertices = null;
 
-    p.faces = null;
+    p.faces = null; //TODO: this array can contain elements of 2,3 & 4 points, so it should be renamed.
+
+
+
+    p.pivot = [0, 0, 0];
 
     return Mesh;
 });
