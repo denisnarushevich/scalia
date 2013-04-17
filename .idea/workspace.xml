@@ -66,55 +66,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CanvasRenderer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/CanvasRenderer.js">
+      <file leaf-file-name="Plane.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/gameObjects/Plane.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="10" selection-start="9952" selection-end="9952" vertical-scroll-proportion="0.0">
+            <state line="26" column="8" selection-start="599" selection-end="625" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.js">
+      <file leaf-file-name="Cube.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="14" selection-start="2846" selection-end="2846" vertical-scroll-proportion="0.92281497">
+            <state line="51" column="34" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.984109">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransformComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
+      <file leaf-file-name="Camera.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="96" selection-start="4501" selection-end="4501" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MeshComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gl-matrix.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2203" column="4" selection-start="55675" selection-end="55675" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Plane4ShapeComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/Plane4ShapeComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="20" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,16 +96,65 @@
       <file leaf-file-name="Axis.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/gameObjects/Axis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="47" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
+            <state line="0" column="95" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#220#596#0" expanded="false" />
+                <element signature="e#621#721#0" expanded="false" />
+                <element signature="e#1066#1318#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="35" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AxisMeshComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/AxisMeshComponent.js">
+      <file leaf-file-name="CanvasRenderer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/CanvasRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="14" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0">
+            <state line="99" column="11" selection-start="4281" selection-end="4281" vertical-scroll-proportion="-26.36">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gl-matrix.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="646" column="4" selection-start="17578" selection-end="17578" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="2" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CanvasRenderer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CanvasRenderer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MeshComponent.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="64" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,22 +170,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/engine/components/MeshComponen.js" />
-        <option value="$PROJECT_DIR$/engine/gameObjects/Plane.js" />
-        <option value="$PROJECT_DIR$/engine/components/PlaneShapeComponent.js" />
         <option value="$PROJECT_DIR$/engine/Logic.js" />
-        <option value="$PROJECT_DIR$/engine/GameObject.js" />
         <option value="$PROJECT_DIR$/engine/gameObjects/2DPlane.js" />
-        <option value="$PROJECT_DIR$/engine/engine.js" />
-        <option value="$PROJECT_DIR$/engine/gameObjects/Axis.js" />
         <option value="$PROJECT_DIR$/engine/components/PlaneMeshComponent.js" />
         <option value="$PROJECT_DIR$/engine/components/SpriteComponent.js" />
-        <option value="$PROJECT_DIR$/engine/components/MeshComponent.js" />
         <option value="$PROJECT_DIR$/engine/components/Plane4ShapeComponent.js" />
         <option value="$PROJECT_DIR$/engine/components/AxisMeshComponent.js" />
-        <option value="$PROJECT_DIR$/engine/CanvasRenderer.js" />
         <option value="$PROJECT_DIR$/engine/components/TransformComponent.js" />
+        <option value="$PROJECT_DIR$/engine/components/CubeShapeComponent.js" />
+        <option value="$PROJECT_DIR$/engine/engine.js" />
+        <option value="$PROJECT_DIR$/engine/GameObject.js" />
+        <option value="$PROJECT_DIR$/engine/gameObjects/Axis.js" />
+        <option value="$PROJECT_DIR$/engine/gameObjects/Plane.js" />
+        <option value="$PROJECT_DIR$/engine/gameObjects/Cube.js" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/engine/components/MeshComponent.js" />
+        <option value="$PROJECT_DIR$/engine/CanvasRenderer.js" />
       </list>
     </option>
   </component>
@@ -199,6 +221,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -267,27 +290,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scalia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scalia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="engine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,12 +354,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130732" sideWeight="0.4834437" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130732" sideWeight="0.50883" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130732" sideWeight="0.49668875" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130732" sideWeight="0.495585" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -431,73 +435,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Plane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="33" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/engine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="18" selection-start="100" selection-end="100" vertical-scroll-proportion="0.09648127">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/2DPlane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/PlaneMeshComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="3" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/SpriteComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/Plane4ShapeComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="20" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Axis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="47" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/AxisMeshComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="14" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/CanvasRenderer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="10" selection-start="9952" selection-end="9952" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/World.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -508,9 +445,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
+    <entry file="file://$PROJECT_DIR$/engine/engine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2203" column="4" selection-start="55675" selection-end="55675" vertical-scroll-proportion="0.0">
+        <state line="29" column="44" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -522,9 +459,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/engine/components/SpriteComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/components/CameraComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="35" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Plane.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="8" selection-start="599" selection-end="625" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Axis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="95" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#220#596#0" expanded="false" />
+            <element signature="e#621#721#0" expanded="false" />
+            <element signature="e#1066#1318#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="14" selection-start="2846" selection-end="2846" vertical-scroll-proportion="0.92281497">
+        <state line="9" column="2" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CanvasRenderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="646" column="4" selection-start="17578" selection-end="17578" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/CanvasRenderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="11" selection-start="4281" selection-end="4281" vertical-scroll-proportion="-26.36">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="64" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="34" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.984109">
           <folding />
         </state>
       </provider>

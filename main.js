@@ -7,13 +7,13 @@ require(["./engine/engine"], function (scaliaEngine) {
         var myGame = new scaliaEngine.Game();
 
 
-
+/*
         var cube = window.cube = new scaliaEngine.gameObjects.Cube();
         myGame.logic.world.AddGameObject(cube);
         cube.transform.SetPosition(0,0,0);
-        cube.transform.SetScale(10,10,10);
+        cube.transform.SetScale(10,10,10);*/
 
-        N = 100;
+        N = 50;
 
         for(var i = 0; i < N; i++){
             for(var j = 0; j < N; j++){
@@ -92,7 +92,7 @@ require(["./engine/engine"], function (scaliaEngine) {
         window.myGame = myGame;
 
         var a = setInterval(function(){
-            camera.transform.Rotate(0,1/4,0, "world");
+            camera.transform.Rotate(0,1/100,0, "world");
         },40);
     });
 });

@@ -7,10 +7,11 @@ define([
     './gameObjects/Camera',
     './gameObjects/Cube',
     './gameObjects/Plane',
-    './gameObjects/2DPlane',
     './components/CameraComponent',
-    './components/ShapeComponent',
-], function (utils, Game, GameObject, Component, Axis, Camera, Cube, Plane, Tile2D, CameraComponent, ShapeComponent) {
+    './components/MeshComponent',
+    './components/TransformComponent',
+    './components/SpriteComponent'
+], function (utils, Game, GameObject, Component, Axis, Camera, Cube, Plane, CameraComponent, MeshComponent, TransformComponent, SpriteComponent) {
     return window.scaliaEngine = {
         utils: utils,
         Game: Game,
@@ -20,12 +21,13 @@ define([
             Axis: Axis,
             Camera: Camera,
             Cube: Cube,
-            Plane: Plane,
-            Tile2D: Tile2D
+            Plane: Plane
         },
         components: {
             CameraComponent: CameraComponent,
-            ShapeComponent: ShapeComponent
+            MeshComponent: MeshComponent,
+            TransformComponent: TransformComponent,
+            SpriteComponent: SpriteComponent
         }
     };
 });
