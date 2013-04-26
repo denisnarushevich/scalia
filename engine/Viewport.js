@@ -8,6 +8,7 @@ define(["./CanvasRenderer"], function (CanvasRenderer) {
 
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext("2d");
+        //this.context.translate(0.5, 0.5);
 
         this.SetSize(size);
 

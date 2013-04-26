@@ -19,8 +19,8 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-strict.xsd" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361964384423" ignored="false" />
-    <file path="/Viewport.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1363781914558" ignored="false" />
-    <file path="/main.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364151173383" ignored="false" />
+    <file path="/Viewport.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366919542358" ignored="false" />
+    <file path="/main.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366920029015" ignored="false" />
     <file path="/CameraComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364131117194" ignored="false" />
     <file path="/RectangleShape.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1361992806384" ignored="false" />
     <file path="/GameObject.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364419213507" ignored="false" />
@@ -44,9 +44,15 @@
     <file path="/CanvasRenderer.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364419946753" ignored="false" />
     <file path="/PlaneShapeComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1363722375172" ignored="false" />
     <file path="/index.html" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364131600897" ignored="false" />
-    <file path="/MeshComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364410772680" ignored="false" />
+    <file path="/MeshComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366653122509" ignored="false" />
     <file path="/PlaneMeshComponent.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364410701641" ignored="false" />
     <file path="/Plane.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1364419875648" ignored="false" />
+    <file path="/QuadTree.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366974213312" ignored="false" />
+    <file path="/QuadTreeNode.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366654387736" ignored="false" />
+    <file path="/BoundingBox.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366977095940" ignored="false" />
+    <file path="/Axis.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366652883634" ignored="false" />
+    <file path="/Node.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366984086746" ignored="false" />
+    <file path="/OctTree.js" changelist="0f598ada-3709-48a1-9ae1-4b115a217635" time="1366984135282" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,28 +72,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Plane.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/gameObjects/Plane.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="8" selection-start="599" selection-end="625" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cube.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Cube.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="34" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.984109">
+            <state line="51" column="34" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camera.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
+      <file leaf-file-name="OctTree.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/lib/OctTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="2" column="28" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/lib/OctTree/Node.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="31" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BoundingBox.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/engine/lib/BoundingBox.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="4" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.9023836">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="engine.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/engine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="10" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -96,20 +120,7 @@
       <file leaf-file-name="Axis.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/gameObjects/Axis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="95" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#220#596#0" expanded="false" />
-                <element signature="e#621#721#0" expanded="false" />
-                <element signature="e#1066#1318#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameObject.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="35" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
+            <state line="0" column="54" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,7 +129,25 @@
       <file leaf-file-name="CanvasRenderer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/engine/CanvasRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="11" selection-start="4281" selection-end="4281" vertical-scroll-proportion="-26.36">
+            <state line="138" column="30" selection-start="5571" selection-end="5571" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Viewport.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/Viewport.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="10" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="10" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,33 +157,6 @@
         <entry file="file://$PROJECT_DIR$/engine/utils/gl-matrix.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="646" column="4" selection-start="17578" selection-end="17578" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="2" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CanvasRenderer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CanvasRenderer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MeshComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="64" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,30 +172,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/engine/Logic.js" />
-        <option value="$PROJECT_DIR$/engine/gameObjects/2DPlane.js" />
-        <option value="$PROJECT_DIR$/engine/components/PlaneMeshComponent.js" />
-        <option value="$PROJECT_DIR$/engine/components/SpriteComponent.js" />
-        <option value="$PROJECT_DIR$/engine/components/Plane4ShapeComponent.js" />
-        <option value="$PROJECT_DIR$/engine/components/AxisMeshComponent.js" />
-        <option value="$PROJECT_DIR$/engine/components/TransformComponent.js" />
         <option value="$PROJECT_DIR$/engine/components/CubeShapeComponent.js" />
-        <option value="$PROJECT_DIR$/engine/engine.js" />
         <option value="$PROJECT_DIR$/engine/GameObject.js" />
-        <option value="$PROJECT_DIR$/engine/gameObjects/Axis.js" />
         <option value="$PROJECT_DIR$/engine/gameObjects/Plane.js" />
         <option value="$PROJECT_DIR$/engine/gameObjects/Cube.js" />
-        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/engine/lib/QuadTree/QuadTreeNode.js" />
+        <option value="$PROJECT_DIR$/engine/gameObjects/Axis.js" />
         <option value="$PROJECT_DIR$/engine/components/MeshComponent.js" />
+        <option value="$PROJECT_DIR$/engine/lib/QuadTree/Node.js" />
+        <option value="$PROJECT_DIR$/engine/Viewport.js" />
         <option value="$PROJECT_DIR$/engine/CanvasRenderer.js" />
+        <option value="$PROJECT_DIR$/engine/lib/QuadTree.js" />
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/engine/engine.js" />
+        <option value="$PROJECT_DIR$/engine/lib/OctTree/Node.js" />
+        <option value="$PROJECT_DIR$/engine/lib/OctTree.js" />
+        <option value="$PROJECT_DIR$/engine/lib/BoundingBox.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="1363" />
+    <option name="width" value="1926" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -221,7 +222,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -286,12 +286,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OctTree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gameObjects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scalia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,8 +358,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/swarming" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -311,14 +370,22 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/engine/lib" />
+      <recent name="$PROJECT_DIR$/engine/lib/QuadTree" />
       <recent name="$PROJECT_DIR$/engine" />
       <recent name="$PROJECT_DIR$/engine/components" />
       <recent name="D:\dev\scalia\engine\utils" />
-      <recent name="D:\dev\js\scalia\engine" />
-      <recent name="D:\dev\js\scalia\engine\gameObjects" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -353,13 +420,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="1363" y="0" width="1926" height="1053" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130732" sideWeight="0.49668875" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130732" sideWeight="0.495585" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17764892" sideWeight="0.2767365" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17764892" sideWeight="0.7155458" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -407,6 +474,13 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -420,6 +494,7 @@
     <option name="ACTIVE_VCS_NAME" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
@@ -435,49 +510,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/engine/World.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/Logic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/engine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="44" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/TransformComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="96" selection-start="4501" selection-end="4501" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/SpriteComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/components/CameraComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/GameObject.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="35" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="56" column="35" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/gameObjects/Plane.js">
@@ -489,25 +529,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/gameObjects/Camera.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="34" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/gameObjects/Axis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="95" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#220#596#0" expanded="false" />
-            <element signature="e#621#721#0" expanded="false" />
-            <element signature="e#1066#1318#0" expanded="false" />
-          </folding>
+        <state line="0" column="54" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="2" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+        <state line="29" column="10" selection-start="639" selection-end="639" vertical-scroll-proportion="0.49263874">
           <folding />
         </state>
       </provider>
@@ -526,23 +567,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/engine/Viewport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="10" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/engine/CanvasRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="11" selection-start="4281" selection-end="4281" vertical-scroll-proportion="-26.36">
+        <state line="138" column="30" selection-start="5571" selection-end="5571" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/components/MeshComponent.js">
+    <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="64" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+        <state line="37" column="10" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/gameObjects/Cube.js">
+    <entry file="file://$PROJECT_DIR$/engine/engine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="34" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.984109">
+        <state line="13" column="10" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/lib/OctTree/Node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="31" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/lib/OctTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/lib/BoundingBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="4" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.9023836">
           <folding />
         </state>
       </provider>
@@ -551,6 +620,7 @@
   <component name="hg4idea.settings">
     <option name="myCheckIncoming" value="false" />
     <option name="myCheckOutgoing" value="false" />
+    <option name="CHECK_INCOMING_OUTGOING" value="false" />
   </component>
 </project>
 

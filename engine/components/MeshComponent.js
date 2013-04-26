@@ -1,4 +1,4 @@
-define(["../Component"], function (Component) {
+define(["../Component", "../lib/BoundingBox"], function (Component, BoundingBox) { //TODO: review path of bbox
     function Mesh(gameObject) {
         Component.call(this, gameObject);
     }
@@ -19,7 +19,16 @@ define(["../Component"], function (Component) {
 
     p.vertexNormals = null;
 
+    /**
+     * Bounding box in local space.
+     * @type {BoundingBox}
+     */
+    p.bounds = null;
+
     p.ComputeNormals = function(){
+        this.bounds = BoundingBox.Calculate(this.vertices);
+        //console.log(this.bounds);
+
         this.ComputeFaceNormals();
     };
 
