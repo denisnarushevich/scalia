@@ -24,7 +24,7 @@ define(["../GameObject", "../components/MeshComponent"], function (GameObject, M
             [0, 1, 3, 2]
         ];
 
-        mesh.ComputeFaceNormals();
+        mesh.ComputeNormals();
 
         this.AddComponent(mesh);
     }

@@ -1,6 +1,7 @@
 define(["../Component", "../lib/BoundingBox"], function (Component, BoundingBox) { //TODO: review path of bbox
     function Mesh(gameObject) {
         Component.call(this, gameObject);
+        this.bounds = BoundingBox.Create([0,0,0], [1,1,1]);
     }
 
     var p = Mesh.prototype = Object.create(Component.prototype);
@@ -26,8 +27,7 @@ define(["../Component", "../lib/BoundingBox"], function (Component, BoundingBox)
     p.bounds = null;
 
     p.ComputeNormals = function(){
-        this.bounds = BoundingBox.Calculate(this.vertices);
-        //console.log(this.bounds);
+        this.bounds = BoundingBox.Calculate(this.bounds, this.vertices);
 
         this.ComputeFaceNormals();
     };

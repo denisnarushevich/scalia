@@ -1,17 +1,6 @@
 require(["./engine/engine"], function (scaliaEngine) {
-    require([
-        //'./js/gameObjects/BallObject',
-        //'./engine/components/RectangleShape',
-        //'./js/scripts/MoveScript'
-    ], function (BallObject, RectangleShape, MoveScript) {
+    require([], function (BallObject, RectangleShape, MoveScript) {
         var myGame = new scaliaEngine.Game();
-
-
-/*
-        var cube = window.cube = new scaliaEngine.gameObjects.Cube();
-        myGame.logic.world.AddGameObject(cube);
-        cube.transform.SetPosition(0,0,0);
-        cube.transform.SetScale(10,10,10);*/
 
         N = 50;
 
@@ -36,8 +25,8 @@ require(["./engine/engine"], function (scaliaEngine) {
         cameraObject.camera.SetSize(document.width, document.height);
         //cameraObject.camera.SetSize(100, 100);
         //cameraObject.transform.SetPosition(700,1000,700);
-        //cameraObject.transform.Rotate(-32.264,45,0);
-        cameraObject.transform.Rotate(-90,0,0);
+        cameraObject.transform.Rotate(-32.264,45,0);
+        //cameraObject.transform.Rotate(-90,0,0);
 
         document.onkeydown = function(e){
             if(e.keyCode == 65){ //a
@@ -93,7 +82,7 @@ require(["./engine/engine"], function (scaliaEngine) {
         window.myGame = myGame;
 
         var a = setInterval(function(){
-            camera.transform.Rotate(0,0,1, "self");
+            camera.transform.Rotate(0,1,0, "world");
         },40);
     });
 });

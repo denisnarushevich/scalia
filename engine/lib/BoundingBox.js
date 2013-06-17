@@ -1,6 +1,12 @@
 define(function(){
-    function BoundingBox(){
-        
+    var BoundingBox = {};
+
+    BoundingBox.Create = function(min, max){
+        return {
+            min: min,
+            max: max,
+            position: null
+        };
     }
 
     /**
@@ -8,7 +14,7 @@ define(function(){
      * @param {Array} vertices
      * @return {BoundingBox}
      */
-    BoundingBox.Calculate = function(vertices){
+    BoundingBox.Calculate = function(boundingBox, vertices){
         var maxX = 0,
             minX = 0,
             maxY = 0,
@@ -40,27 +46,24 @@ define(function(){
                 minZ = vertex[2];
         }
 
-        var bbox = new BoundingBox();
+        boundingBox.min = [minX, minY, minZ];
+        boundingBox.max = [maxX, maxY, maxZ];
+        boundingBox.position = [maxX - (maxX - minX)/2, maxY - (maxY - minY)/2, maxZ - (maxZ - minZ)/2];
 
-        bbox.minPoint = [minX, minY, minZ];
-        bbox.maxPoint = [maxX, maxY, maxZ];
-        bbox.position = [maxX - (maxX - minX)/2, maxY - (maxY - minY)/2, maxZ - (maxZ - minZ)/2];
-
-        return bbox;
+        return boundingBox;
     }
-    
-    var p = BoundingBox.prototype;
 
+    BoundingBox.Intersects = function(a, b){
+        return !(a.min[0] > b.max[0] || a.max[0] < b.min[0] || a.min[1] > b.max[1] || a.max[1] < b.min[1] || a.min[2] > b.max[2] || a.max[2] < b.min[2]);
+    }
 
-    /**
-     * Position of center point, relatively to objects center point
-     * @type {int[]}
-     */
-    p.position = null;
+    BoundingBox.Contains = function(a, b){
+        return b.min[0] >= a.min[0] && b.max[0] <= a.max[0] && b.min[1] >= a.min[1] && b.max[1] <= a.max[1] && b.min[2] >= a.min[2] && b.max[2] <= a.max[2];
+    }
 
-    p.minPoint = null;
-
-    p.maxPoint = null;
+    BoundingBox.ContainsPoint = function(box, point){
+        return point[0] >= box.min[0] && point[0] <= box.max[0] && point[1] >= box.min[1] && point[1] <= box.max[1] && point[2] >= box.min[2] && point[2] <= box.max[2];
+    }
 
     return BoundingBox;
-})
+});

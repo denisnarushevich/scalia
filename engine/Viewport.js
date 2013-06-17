@@ -12,7 +12,7 @@ define(["./CanvasRenderer"], function (CanvasRenderer) {
 
         this.SetSize(size);
 
-        this.renderer = new CanvasRenderer();
+        this.renderer = new CanvasRenderer(this.canvas, camera);
     }
 
     var p = Viewport.prototype;
@@ -41,7 +41,7 @@ define(["./CanvasRenderer"], function (CanvasRenderer) {
      * @return {*}
      */
     p.Render = function () {
-        this.renderer.Render(this);
+        this.renderer.Render();
     }
 
     /**
