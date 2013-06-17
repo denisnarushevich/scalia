@@ -49,7 +49,7 @@ define(["../GameObject", "../components/MeshComponent"], function (GameObject, M
             [11, 0]
         ];
 
-        mesh.ComputeFaceNormals();
+        mesh.ComputeNormals();
 
         this.AddComponent(mesh);
     }

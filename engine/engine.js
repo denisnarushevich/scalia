@@ -11,7 +11,6 @@ define([
     './components/MeshComponent',
     './components/TransformComponent',
     './components/SpriteComponent',
-    './lib/OctTree'
 ], function (utils, Game, GameObject, Component, Axis, Camera, Cube, Plane, CameraComponent, MeshComponent, TransformComponent, SpriteComponent) {
     return window.scaliaEngine = {
         utils: utils,
