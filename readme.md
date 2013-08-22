@@ -13,7 +13,8 @@ I haven't fully implemented 3d rendering, but engine is capabale to handle it.
 * Soon
 
 ## Simple usage
- ```javascript
+
+```
  require("engine", function(engine){
   var game = new engine.Game();
 
@@ -44,4 +45,4 @@ I haven't fully implemented 3d rendering, but engine is capabale to handle it.
   
   document.body.addChild(viewport.canvas);
  });
- ```
+```
