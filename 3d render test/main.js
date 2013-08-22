@@ -7,8 +7,8 @@ require(["./engine/engine"], function (scaliaEngine) {
         for(var i = 0; i < N; i++){
             for(var j = 0; j < N; j++){
                 var child = new scaliaEngine.gameObjects.Plane();
-                child.transform.Translate((i - N/2) * 64,0, (j - N/2) * 64);
-                child.transform.SetScale(64, 1, 64);
+                child.transform.Translate((i - N/2) * 45.255,0, (j - N/2) * 45.255);
+                child.transform.SetScale(45.255, 1, 45.255);
                 myGame.logic.world.AddGameObject(child);
             }
         }
@@ -25,7 +25,7 @@ require(["./engine/engine"], function (scaliaEngine) {
         cameraObject.camera.SetSize(document.width, document.height);
         //cameraObject.camera.SetSize(100, 100);
         //cameraObject.transform.SetPosition(700,1000,700);
-        cameraObject.transform.Rotate(-32.264,45,0);
+        cameraObject.transform.Rotate(-30,45,0);
         //cameraObject.transform.Rotate(-90,0,0);
 
         document.onkeydown = function(e){
@@ -81,8 +81,9 @@ require(["./engine/engine"], function (scaliaEngine) {
 
         window.myGame = myGame;
 
+/*
         var a = setInterval(function(){
             camera.transform.Rotate(0,1,0, "world");
-        },40);
+        },40);*/
     });
 });
