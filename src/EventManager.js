@@ -1,13 +1,9 @@
 define(function () {
     function EventManager() {
-        this.eventListeners = {};
+        this.eventListeners = [];
     }
 
     var p = EventManager.prototype;
-
-    p.events = {
-        update: 0
-    };
 
     p.eventListeners = null;
 

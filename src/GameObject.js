@@ -1,4 +1,4 @@
-define(['./components/TransformComponent', './components/CameraComponent', "./components/SpriteComponent"], function (Transform, Camera, Sprite) {
+define(['./components/TransformComponent'], function (Transform) {
     /**
      * Base object
      * @constructor

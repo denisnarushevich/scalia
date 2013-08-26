@@ -77,8 +77,11 @@ define(["../lib/gl-matrix","../Component", "../lib/BoundingBox"], function(glMat
         this.viewport = null;
     }
 
+
+
     CameraComponent.prototype.setGameObject = function(gameObject){
         Component.prototype.setGameObject.call(this, gameObject);
+        gameObject.camera = this;
 
         var cam = this;
 

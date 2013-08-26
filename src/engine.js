@@ -1,16 +1,17 @@
 define([
-    './engine/config',
-    './engine/Game',
-    './engine/GameObject',
-    './engine/Component',
-    './engine/gameObjects/Camera',
-    './engine/components/CameraComponent',
-    './engine/components/TransformComponent',
-    './engine/components/SpriteComponent',
-    './engine/lib/gl-matrix',
-    './engine/AssetManager',
-    './engine/EventManager'
-], function (config, Game, GameObject, Component, Camera, CameraComponent, TransformComponent, SpriteComponent, glMatrix, AssetManager, EventManager) {
+    './config',
+    './Game',
+    './GameObject',
+    './Component',
+    './gameObjects/Camera',
+    './components/CameraComponent',
+    './components/TransformComponent',
+    './components/SpriteRenderer',
+    './lib/gl-matrix',
+    './AssetManager',
+    './EventManager',
+    './components/PathRenderer'
+], function (config, Game, GameObject, Component, Camera, CameraComponent, TransformComponent, SpriteRenderer, glMatrix, AssetManager, EventManager, PathRenderer) {
     return window.scaliaEngine = {
         config: config,
         Game: Game,
@@ -19,9 +20,10 @@ define([
         Camera: Camera,
         CameraComponent: CameraComponent,
         TransformComponent: TransformComponent,
-        SpriteComponent: SpriteComponent,
+        SpriteRenderer: SpriteRenderer,
         glMatrix: glMatrix,
         Assets: AssetManager,
-        EventManager: EventManager
+        EventManager: EventManager,
+        PathRenderer: PathRenderer
     };
 });
