@@ -8,6 +8,10 @@ define(["../Component", "../lib/gl-matrix"], function (Component, glMatrix) {
     function Transform() {
         Component.call(this);
 
+        this.events = {
+            update: 0
+        }
+
         this.children = [];
 
         this.local = new Float32Array([
@@ -96,6 +100,11 @@ define(["../Component", "../lib/gl-matrix"], function (Component, glMatrix) {
 
         this.dirtyL = true;
         this.dirtyW = true;
+    }
+
+    p.setGameObject = function(gameObject){
+        Component.prototype.setGameObject.call(this, gameObject);
+        gameObject.transform = this;
     }
 
     p.removeParent = function(){

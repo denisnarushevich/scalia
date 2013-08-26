@@ -1,4 +1,4 @@
-define(["./config","./lib/gl-matrix"], function (config, glMatrix) {
+define(["./config","./lib/gl-matrix", "./components/PathRenderer", "./components/SpriteRenderer"], function (config, glMatrix, PathRenderer, SpriteRenderer) {
     function Canvas2dRenderer(graphics) {
         this.graphics = graphics;
         this.layerBuffers = [];
@@ -16,17 +16,21 @@ define(["./config","./lib/gl-matrix"], function (config, glMatrix) {
 
     p.screenSpaceCulling = function (gameObject, viewport) {
         //primitive culling
-        if (gameObject.sprite !== undefined && gameObject.sprite !== null) {
+        //todo this should be using bounding box
+        if (gameObject.spriteRenderer !== undefined && gameObject.spriteRenderer !== null) {
             gameObject.transform.getPosition(bufferVec3);
             glMatrix.vec3.transformMat4(bufferVec3, bufferVec3, this.M);
-            var sprite = gameObject.sprite;
+            var sprite = gameObject.spriteRenderer;
             bufferVec3[0] -= sprite.pivotX;
             bufferVec3[1] -= sprite.pivotY;
 
             if (bufferVec3[0] > viewport.width || bufferVec3[0] + sprite.width < 0 || bufferVec3[1] > viewport.height || bufferVec3[1] + sprite.height < 0) {
 
             } else {
-                this.layerBuffers[sprite.layer].push(gameObject);
+                if(gameObject.pathRenderer && gameObject.pathRenderer.enabled)
+                    this.layerBuffers[gameObject.pathRenderer.layer].push(gameObject.pathRenderer)
+
+                this.layerBuffers[sprite.layer].push(sprite);
             }
         }
     }
@@ -35,7 +39,8 @@ define(["./config","./lib/gl-matrix"], function (config, glMatrix) {
         var gameObjects = camera.world.retrieve(camera),
             gameObjectsCount = gameObjects.length,
             layersCount = config.layersCount,
-            gameObject, i, j, ctx;
+            renderer, renderers, renderersCount,
+            i, j, ctx;
 
         this.M = camera.camera.getWorldToScreen();
 
@@ -53,25 +58,26 @@ define(["./config","./lib/gl-matrix"], function (config, glMatrix) {
         for (i = 0; i < layersCount; i++) {
             ctx = viewport.layers[i];
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-            gameObjects = this.layerBuffers[i];
-            gameObjectsCount = gameObjects.length;
+            renderers = this.layerBuffers[i];
+            renderersCount = renderers.length;
 
             if (config.depthSortingMask & (1 << i)) {
-                gameObjects.sort(function (a, b) {
-                    a.transform.getPosition(bufferVec3);
+                renderers.sort(function (a, b) {
+                    a.gameObject.transform.getPosition(bufferVec3);
                     a = bufferVec3[0] + bufferVec3[1] + bufferVec3[2];
-                    b.transform.getPosition(bufferVec3);
+                    b.gameObject.transform.getPosition(bufferVec3);
                     b = bufferVec3[0] + bufferVec3[1] + bufferVec3[2];
                     return a - b;
                 });
             }
 
-            for (j = 0; j < gameObjectsCount; j++) {
-                gameObject = gameObjects.pop();
+            for (j = 0; j < renderersCount; j++) {
+                renderer = renderers.pop();
 
-                if (gameObject.sprite !== undefined) {
-                    this.renderSprite(gameObject.sprite, ctx);
-                }
+                if(renderer.constructor === SpriteRenderer)
+                    this.renderSprite(renderer, ctx);
+                else
+                    this.renderPath(renderer, ctx);
 
                 //this.RenderAxis(gameObject);
             }
@@ -224,6 +230,27 @@ define(["./config","./lib/gl-matrix"], function (config, glMatrix) {
         ctx.strokeStyle = bound.color || (bound.color = '#'+((0xFFFFFF*Math.random())|0).toString(16));
         ctx.stroke();
 
+    }
+
+    p.renderPath = function(path, ctx){
+        var points = path.points,
+            len = points.length,
+            i;
+
+        ctx.beginPath();
+        ctx.lineWidth = path.width;
+        glMatrix.vec3.transformMat4(bufferVec3, points[0], this.M);
+        ctx.moveTo(bufferVec3[0], bufferVec3[1]);
+        for(i = 1; i < len; i++){
+            glMatrix.vec3.transformMat4(bufferVec3, points[i], this.M);
+            ctx.lineTo(bufferVec3[0], bufferVec3[1]);
+            ctx.moveTo(bufferVec3[0], bufferVec3[1]);
+        }
+        glMatrix.vec3.transformMat4(bufferVec3, points[0], this.M);
+        ctx.lineTo(bufferVec3[0], bufferVec3[1]);
+        ctx.closePath();
+        ctx.strokeStyle = path.color;
+        ctx.stroke();
     }
 
     return Canvas2dRenderer;

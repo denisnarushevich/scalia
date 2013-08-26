@@ -14,6 +14,8 @@ define(["./EventManager"], function (EventManager) {
      */
     p.gameObject = null;
 
+    p.enabled = true;
+
     p.setGameObject = function(gameObject){
         this.gameObject = gameObject;
     }
