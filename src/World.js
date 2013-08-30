@@ -103,9 +103,10 @@ define(['./lib/Octree'], function (Octree) {
     }
 
     p.start = function () {
-        this.started = true;
-        for (var i = 0; i < this.gameObjectsCount; i++)
+        for (var i = 0; i < this.gameObjectsCount; i++) {
             this.gameObjects[i].start();
+        }
+        this.started = true;
     }
 
     p.tick = function () {
