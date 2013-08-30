@@ -20,10 +20,16 @@ define(["./EventManager"], function (EventManager) {
         this.gameObject = gameObject;
     }
 
+    /**
+     * Runs when component is added to the gameObject
+     */
     p.awake = function(){
 
     }
 
+    /**
+     * Runs when game starts
+     */
     p.start = function(){
 
     }
