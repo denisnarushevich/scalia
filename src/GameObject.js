@@ -45,6 +45,9 @@ define(['./components/TransformComponent'], function (Transform) {
      */
     p.componentsCount = 0;
 
+    /**
+     * Runs when game starts
+     */
     p.start = function(){
         for(var i = 0; i < this.componentsCount; i++){
             this.components[i].start();
@@ -73,6 +76,9 @@ define(['./components/TransformComponent'], function (Transform) {
         this.components[this.componentsCount++] = component;
 
         component.setGameObject(this);
+
+        if(this.world)
+            component.awake();
 
         return component;
     }

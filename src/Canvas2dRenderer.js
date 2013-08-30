@@ -237,6 +237,9 @@ define(["./config","./lib/gl-matrix", "./components/PathRenderer", "./components
             len = points.length,
             i;
 
+        if(points.length < 2)
+            return;
+
         ctx.beginPath();
         ctx.lineWidth = path.width;
         glMatrix.vec3.transformMat4(bufferVec3, points[0], this.M);
