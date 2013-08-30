@@ -81,7 +81,7 @@ define(["../Component", "../lib/gl-matrix"], function (Component, glMatrix) {
     /**
      * @param {Transform} child
      */
-    p.removeChildren = function(child){
+    p.removeChild = function(child){
         this.children.splice(this.children.indexOf(child),1);
         child.removeParent();
     }
@@ -108,7 +108,7 @@ define(["../Component", "../lib/gl-matrix"], function (Component, glMatrix) {
     }
 
     p.removeParent = function(){
-        this.parent.removeEventListener(parent.events.update, this.onParentUpdate);
+        this.parent.removeEventListener(this.parent.events.update, this.onParentUpdate);
         this.parent = null;
         this.dirtyL = true;
         this.dirtyW = true;
@@ -243,11 +243,6 @@ define(["../Component", "../lib/gl-matrix"], function (Component, glMatrix) {
 
         this.dispatchEvent(this.events.update, this);
     }
-
-    /*p.tick = function(){
-        for(var i = 0; i < this.children.length; i++)
-            this.children[i].gameObject.tick();
-    } */
 
     return Transform;
 });

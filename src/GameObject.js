@@ -98,7 +98,6 @@ define(['./components/TransformComponent'], function (Transform) {
     }
 
     p.tick = function(){
-        //console.log(this)
         for(var i = 0; i < this.componentsCount; i++){
             this.components[i].tick();
         }
