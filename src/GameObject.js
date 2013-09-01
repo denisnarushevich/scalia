@@ -3,10 +3,15 @@ define(['./components/TransformComponent'], function (Transform) {
      * Base object
      * @constructor
      */
-    function GameObject() {
+    function GameObject(name) {
         this.instanceId = GameObject.prototype.instanceId++;
         this.components = [];
         this.transform = this.addComponent(new Transform());
+
+        this.removeQueue = [];
+
+        if(name !== undefined)
+            this.name = name;
     }
 
     var p = GameObject.prototype;
@@ -15,6 +20,11 @@ define(['./components/TransformComponent'], function (Transform) {
      * @type {Number}
      */
     p.instanceId = 0;
+
+    /**
+     * @type {string}
+     */
+    p.name = "gameObject";
 
     /**
      * Layer index
@@ -46,10 +56,22 @@ define(['./components/TransformComponent'], function (Transform) {
     p.componentsCount = 0;
 
     /**
+     * @private
+     * @type {[]}
+     */
+    p.removeQueue = null;
+
+    /**
+     * @private
+     * @type {boolean}
+     */
+    p.removeQueueWaiting = false;
+
+    /**
      * Runs when game starts
      */
-    p.start = function(){
-        for(var i = 0; i < this.componentsCount; i++){
+    p.start = function () {
+        for (var i = 0; i < this.componentsCount; i++) {
             this.components[i].start();
         }
     }
@@ -57,14 +79,8 @@ define(['./components/TransformComponent'], function (Transform) {
     /**
      * @param {World} world
      */
-    p.setWorld = function(world){
+    p.setWorld = function (world) {
         this.world = world;
-
-
-
-        for(var i = 0; i < this.componentsCount; i++){
-            this.components[i].awake();
-        }
     }
 
     /**
@@ -72,15 +88,18 @@ define(['./components/TransformComponent'], function (Transform) {
      * @param {Component} component
      * @return {*}
      */
-    p.addComponent = function(component){
+    p.addComponent = function (component) {
         this.components[this.componentsCount++] = component;
 
         component.setGameObject(this);
 
-        if(this.world)
-            component.awake();
-
         return component;
+    }
+
+    p.removeComponent = function (component) {
+        component.unsetGameObject();
+        this.removeQueue.push(component);
+        this.removeQueueWaiting = true;
     }
 
     /**
@@ -88,22 +107,39 @@ define(['./components/TransformComponent'], function (Transform) {
      * @param {function} Type
      * @returns {*}
      */
-    p.getComponent = function(Type){
-        for(var i = 0; i < this.components.length; i++){
+    p.getComponent = function (Type) {
+        for (var i = 0; i < this.components.length; i++) {
             var component = this.components[i];
-            if(component instanceof Type)
+            if (component instanceof Type)
                 return component;
         }
         return null;
     }
 
-    p.tick = function(){
-        for(var i = 0; i < this.componentsCount; i++){
-            this.components[i].tick();
+    p.tick = function () {
+        var components = this.components,
+            component,
+            len = this.componentsCount,
+            i;
+
+        for (i = 0; i < len; i++){
+            if((component = components[i]).tick !== null)
+                component.tick();
+        }
+
+        if(this.removeQueueWaiting){
+            var len = this.removeQueue.length;
+
+            for(i = 0; i < len; i++){
+                this.components.splice(this.components.indexOf(this.removeQueue.pop()), 1);
+                this.componentsCount--;
+            }
+
+            this.removeQueueWaiting = false;
         }
     }
 
-    p.destroy = function(){
+    p.destroy = function () {
         this.world.removeGameObject(this);
         this.world = null;
     }
