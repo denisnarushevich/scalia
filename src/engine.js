@@ -10,8 +10,9 @@ define([
     './lib/gl-matrix',
     './AssetManager',
     './EventManager',
-    './components/PathRenderer'
-], function (config, Game, GameObject, Component, Camera, CameraComponent, TransformComponent, SpriteRenderer, glMatrix, AssetManager, EventManager, PathRenderer) {
+    './components/PathRenderer',
+    './components/TextRenderer'
+], function (config, Game, GameObject, Component, Camera, CameraComponent, TransformComponent, SpriteRenderer, glMatrix, AssetManager, EventManager, PathRenderer, TextRenderer) {
     return window.scaliaEngine = {
         config: config,
         Game: Game,
@@ -24,6 +25,7 @@ define([
         glMatrix: glMatrix,
         Assets: AssetManager,
         EventManager: EventManager,
-        PathRenderer: PathRenderer
+        PathRenderer: PathRenderer,
+        TextRenderer: TextRenderer,
     };
 });

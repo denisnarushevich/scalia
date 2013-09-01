@@ -79,6 +79,32 @@ define(['./EventManager', './config'], function (EventManager, config) {
                 pageY: e.pageY - offset[1]
             });
         });
+
+        /* touches */
+
+        this.canvas.addEventListener("touchstart", function(e){
+            var offset = viewport.getOffset();
+            viewport.dispatchEvent(viewport.events.pointerdown, { //custom event args. this can be moved to separate class e.g. PointerEventArgs.
+                pageX: e.pageX - offset[0],
+                pageY: e.pageY - offset[1]
+            });
+        });
+
+        this.canvas.addEventListener("touchend", function(e){
+            var offset = viewport.getOffset();
+            viewport.dispatchEvent(viewport.events.pointerup, {
+                pageX: e.pageX - offset[0],
+                pageY: e.pageY - offset[1]
+            });
+        });
+
+        this.canvas.addEventListener("touchmove", function(e){
+            var offset = viewport.getOffset();
+            viewport.dispatchEvent(viewport.events.pointermove, {
+                pageX: e.pageX - offset[0],
+                pageY: e.pageY - offset[1]
+            });
+        });
     }
 
     var p = Viewport.prototype = Object.create(EventManager.prototype);

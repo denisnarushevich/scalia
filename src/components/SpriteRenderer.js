@@ -29,5 +29,10 @@ define(["../Component"], function (Component) {
         gameObject.spriteRenderer = this;
     }
 
+    p.unsetGameObject = function(){
+        this.gameObject.spriteRenderer = undefined;
+        Component.prototype.unsetGameObject.call(this);
+    }
+
     return Sprite;
 });
