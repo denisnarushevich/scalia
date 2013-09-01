@@ -19,5 +19,10 @@ define(["../Component"], function (Component) {
         gameObject.pathRenderer = this;
     }
 
+    p.unsetGameObject = function(){
+        this.gameObject.pathRenderer = undefined;
+        Component.prototype.unsetGameObject.call(this);
+    }
+
     return Path;
 });

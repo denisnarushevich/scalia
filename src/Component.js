@@ -20,11 +20,8 @@ define(["./EventManager"], function (EventManager) {
         this.gameObject = gameObject;
     }
 
-    /**
-     * Runs when component is added to the gameObject
-     */
-    p.awake = function(){
-
+    p.unsetGameObject = function(){
+        this.gameObject = null;
     }
 
     /**
@@ -34,9 +31,11 @@ define(["./EventManager"], function (EventManager) {
 
     }
 
-    p.tick = function(){
-
-    }
+    /**
+     * Runs on every game logic tick
+     * @type {function}
+     */
+    p.tick = null;
 
     return Component;
 });

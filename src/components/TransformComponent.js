@@ -107,6 +107,10 @@ define(["../Component", "../lib/gl-matrix"], function (Component, glMatrix) {
         gameObject.transform = this;
     }
 
+    p.unsetGameObject = function(){
+        throw "Transform shouldn't be remove from gameObject";
+    }
+
     p.removeParent = function(){
         this.parent.removeEventListener(this.parent.events.update, this.onParentUpdate);
         this.parent = null;
