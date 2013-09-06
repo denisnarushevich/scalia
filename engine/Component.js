@@ -1,4 +1,4 @@
-define(["./EventManager"], function (EventManager) {
+define(["lib/eventmanager"], function (EventManager) {
     /**
      * @constructor
      */
