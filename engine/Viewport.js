@@ -1,4 +1,4 @@
-define(['./EventManager', './config'], function (EventManager, config) {
+define(['lib/eventmanager', './config'], function (EventManager, config) {
     /**
      * @param {Graphics} graphics
      * @param {HTMLCanvasElement} canvas @optional
@@ -99,6 +99,7 @@ define(['./EventManager', './config'], function (EventManager, config) {
         });
 
         this.canvas.addEventListener("touchmove", function(e){
+
             var offset = viewport.getOffset();
             viewport.dispatchEvent(viewport.events.pointermove, {
                 pageX: e.pageX - offset[0],
