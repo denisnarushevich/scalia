@@ -46,6 +46,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
+            e.preventDefault();
         });
 
         this.canvas.addEventListener("mouseup", function(e){
@@ -54,6 +55,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
+            e.preventDefault();
         });
 
         this.canvas.addEventListener("mousemove", function(e){
@@ -62,6 +64,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
+            e.preventDefault();
         });
 
         this.canvas.addEventListener("mousein", function(e){
@@ -70,6 +73,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
+            e.preventDefault();
         });
 
         this.canvas.addEventListener("mouseout", function(e){
@@ -78,6 +82,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
+            e.preventDefault();
         });
 
         /* touches */

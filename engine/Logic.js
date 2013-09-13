@@ -39,12 +39,15 @@ define(['./Time', './World', './config'], function (Time, World, config) {
         var frameTime = now - this.time.now,
             dt = this.time.dt;
 
-        while(frameTime >= dt && i < 10){
-            i++;
+        while(frameTime >= dt){
             frameTime -= dt;
             this.time.now += dt;
             this.time.time += dt;
-            this.world.tick();
+            this.world.tick(this.time);
+
+            if(i++>10){
+                break;
+            }
         }
     }
 

@@ -116,7 +116,7 @@ define(['./components/TransformComponent'], function (Transform) {
         return null;
     }
 
-    p.tick = function () {
+    p.tick = function (time) {
         var components = this.components,
             component,
             len = this.componentsCount,
@@ -124,7 +124,7 @@ define(['./components/TransformComponent'], function (Transform) {
 
         for (i = 0; i < len; i++){
             if((component = components[i]).tick !== null)
-                component.tick();
+                component.tick(time);
         }
 
         if(this.removeQueueWaiting){

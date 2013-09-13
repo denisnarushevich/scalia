@@ -130,7 +130,7 @@ define(['./lib/Octree'], function (Octree) {
         this.started = true;
     }
 
-    p.tick = function () {
+    p.tick = function (time) {
         //var t0 = Date.now();
 
         var i,
@@ -138,7 +138,7 @@ define(['./lib/Octree'], function (Octree) {
             gos = this.gameObjects;
 
         for (i = 0; i < len; i++)
-            gos[i].tick();
+            gos[i].tick(time);
 
         if(this.removeQueueWaiting){
             var len = this.removeQueue.length;
