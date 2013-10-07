@@ -22,6 +22,13 @@ define(['./components/TransformComponent'], function (Transform) {
     p.instanceId = 0;
 
     /**
+     * If currently is started.
+     * GameObject is started when game is run, or when gameObject is added in already running world.
+     * @type {boolean}
+     */
+    p.started = false;
+
+    /**
      * @type {string}
      */
     p.name = "gameObject";
@@ -34,7 +41,7 @@ define(['./components/TransformComponent'], function (Transform) {
 
     /**
      * Reference to world object
-     * @private
+     * @public
      * @type {World}
      */
     p.world = null;
@@ -71,17 +78,24 @@ define(['./components/TransformComponent'], function (Transform) {
      * Runs when game starts
      */
     p.start = function () {
-        for (var i = 0; i < this.componentsCount; i++) {
-            this.components[i].start();
+        var cmp, i;
+        for (i = 0; i < this.componentsCount; i++) {
+            cmp = this.components[i];
+
+            !cmp.awaken && cmp.awake !== null && cmp.awake();
+
+            cmp.start !== null && cmp.start();
         }
-    }
+
+        this.started = true;
+    };
 
     /**
      * @param {World} world
      */
     p.setWorld = function (world) {
         this.world = world;
-    }
+    };
 
     /**
      * @public
@@ -92,6 +106,8 @@ define(['./components/TransformComponent'], function (Transform) {
         this.components[this.componentsCount++] = component;
 
         component.setGameObject(this);
+
+        this.started && component.start();
 
         return component;
     }
@@ -122,10 +138,8 @@ define(['./components/TransformComponent'], function (Transform) {
             len = this.componentsCount,
             i;
 
-        for (i = 0; i < len; i++){
-            if((component = components[i]).tick !== null)
-                component.tick(time);
-        }
+        for (i = 0; i < len; i++)
+            (component = components[i]).tick !== null && component.tick(time);
 
         if(this.removeQueueWaiting){
             var len = this.removeQueue.length;

@@ -26,7 +26,7 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
             bufferVec3[0] -= sprite.pivotX;
             bufferVec3[1] -= sprite.pivotY;
 
-            if (bufferVec3[0] <= viewport.width && bufferVec3[0] + sprite.width >= 0 && bufferVec3[1] <= viewport.height && bufferVec3[1] + sprite.height >= 0)
+            if (bufferVec3[0] <= viewport.width && bufferVec3[0] + sprite.sprite.width >= 0 && bufferVec3[1] <= viewport.height && bufferVec3[1] + sprite.sprite.height >= 0)
                 this.layerBuffers[sprite.layer].push(sprite);
         }
 
@@ -99,17 +99,18 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
             viewport.context.drawImage(ctx.canvas, 0, 0);
         }
 
-        if (config.renderOctree && config.useOctree && camera.world.octree.root !== null)
-            this.renderOctreeNode(camera.world.octree.root, viewport.context);
+        //if (config.renderOctree && config.useOctree && camera.world.octree.root !== null)
+        //this.renderOctreeNode(camera.world.octree.root, viewport.context);
 
     }
 
     //Rounding coordinates with Math.round is slow, but looks better
     //Rounding to lowest with pipe operator is faster, but looks worse
-    p.renderSprite = function (sprite, layer) {
-        glMatrix.vec3.transformMat4(bufferVec3, sprite.gameObject.transform.getPosition(bufferVec3), this.M);
+    p.renderSprite = function (renderer, layer) {
+        glMatrix.vec3.transformMat4(bufferVec3, renderer.gameObject.transform.getPosition(bufferVec3), this.M);
+        var sprite = renderer.sprite;
 
-        layer.drawImage(sprite.image, sprite.offsetX, sprite.offsetY, sprite.width, sprite.height, Math.round(bufferVec3[0] - sprite.pivotX), Math.round(bufferVec3[1] - sprite.pivotY), sprite.width, sprite.height);
+        layer.drawImage(sprite.sourceImage, sprite.offsetX, sprite.offsetY, sprite.width, sprite.height, Math.round(bufferVec3[0] - renderer.pivotX), Math.round(bufferVec3[1] - renderer.pivotY), sprite.width, sprite.height);
     }
 
     p.renderAxis = function (gameObject, ctx) {
@@ -167,19 +168,41 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
     }
 
     p.renderOctreeNode = function (node, ctx) {
-        this.renderBound(node.bounds, ctx);
+        if(node.type === 0)
+            this.renderBound(node.x,node.y,node.z,node.ex,node.ey,node.ez, ctx);
 
+        //render childs
         if (node.type === 1) {
-            for (var i = 0; i < 8; i++)
-                if (node.nodes[i] !== undefined)
-                    this.renderOctreeNode(node.nodes[i], ctx)
+            if (node.nodesMask & 1)
+                this.renderOctreeNode(node.subnode0, ctx);
+
+            if (node.nodesMask & 2)
+                this.renderOctreeNode(node.subnode1, ctx);
+
+            if (node.nodesMask & 4)
+                this.renderOctreeNode(node.subnode2, ctx);
+
+            if (node.nodesMask & 8)
+                this.renderOctreeNode(node.subnode3, ctx);
+
+            if (node.nodesMask & 16)
+                this.renderOctreeNode(node.subnode4, ctx);
+
+            if (node.nodesMask & 32)
+                this.renderOctreeNode(node.subnode5, ctx);
+
+            if (node.nodesMask & 64)
+                this.renderOctreeNode(node.subnode6, ctx);
+
+            if (node.nodesMask & 128)
+                this.renderOctreeNode(node.subnode7, ctx);
         }
     }
 
 
-    p.renderBound = function (bound, ctx) {
-        var min = bound.min,
-            max = bound.max,
+    p.renderBound = function (x,y,z,ex,ey,ez, ctx) {
+        var min = [x-ex,y-ey,z-ez],
+            max = [x+ex,y+ey,z+ez],
             w = max[0] - min[0],
             h = max[1] - min[1],
             d = max[2] - min[2];
@@ -240,8 +263,9 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
         glMatrix.vec3.transformMat4(p, max, this.M);
         ctx.lineTo(p[0], p[1]);
 
+        var bound = {};
         ctx.closePath();
-        ctx.strokeStyle = bound.color || (bound.color = '#' + ((0xFFFFFF * Math.random()) | 0).toString(16));
+        //ctx.strokeStyle = bound.color || (bound.color = '#' + ((0xFFFFFF * Math.random()) | 0).toString(16));
         ctx.stroke();
 
     }
