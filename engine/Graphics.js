@@ -6,6 +6,7 @@ define(["./Viewport", "./Canvas2dRenderer"], function (Viewport, Renderer) {
         this.game = game;
         this.viewports = [];
         this.renderer = new Renderer(this);
+        this.started = false;
     }
 
     var p = Graphics.prototype;
@@ -14,6 +15,12 @@ define(["./Viewport", "./Canvas2dRenderer"], function (Viewport, Renderer) {
      * @type {Game}
      */
     p.game = null;
+
+    /**
+     * Flag is set when Game was run
+     * @type {boolean}
+     */
+    p.started = false;
 
     /**
      * @type {Viewport[]}
@@ -26,6 +33,7 @@ define(["./Viewport", "./Canvas2dRenderer"], function (Viewport, Renderer) {
         for(var i = 0; i < viewportsCount; i++){
             viewports[i].start();
         }
+        this.started = true;
     }
 
     /**
@@ -35,6 +43,8 @@ define(["./Viewport", "./Canvas2dRenderer"], function (Viewport, Renderer) {
     p.createViewport = function(canvas){
         var viewport = new Viewport(this, canvas);
         this.viewports.push(viewport);
+        if(this.started)
+            viewport.start();
         return viewport;
     }
 

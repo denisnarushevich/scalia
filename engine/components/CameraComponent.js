@@ -14,7 +14,7 @@ define(["../lib/gl-matrix", "../Component", "../lib/BoundingBox"], function (glM
             [0, 0, 0],
             [0, 0, 0]
         ];
-        this.bounds = new BoundingBox();
+        this.bounds = new BoundingBox();    //rename to AABB
         this.worldToScreenMatrix = new Float32Array(16);
         this.worldToViewportMatrix = new Float32Array(16);
 
@@ -37,6 +37,8 @@ define(["../lib/gl-matrix", "../Component", "../lib/BoundingBox"], function (glM
 
             //update obbox
             cam.bounds.Calculate(cam.frustumBox);
+
+
 
             cam.dispatchEvent(cam.events.update);
         }
