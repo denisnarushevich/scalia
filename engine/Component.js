@@ -16,20 +16,27 @@ define(["lib/eventmanager"], function (EventManager) {
 
     p.enabled = true;
 
+    p.awaken = false;
+
     p.setGameObject = function(gameObject){
         this.gameObject = gameObject;
-    }
+    };
 
     p.unsetGameObject = function(){
         this.gameObject = null;
-    }
+    };
+
+    /**
+     * Runs once & just before first start() call
+     * Runs when gameObject is in the scene
+     * @type {function}
+     */
+    p.awake = null;
 
     /**
      * Runs when game starts
      */
-    p.start = function(){
-
-    }
+    p.start = null;
 
     /**
      * Runs on every game logic tick

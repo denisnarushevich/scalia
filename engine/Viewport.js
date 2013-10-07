@@ -89,7 +89,21 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
 
         this.canvas.addEventListener("touchstart", function(e){
             var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointerdown, { //custom event args. this can be moved to separate class e.g. PointerEventArgs.
+            e.preventDefault();
+            e = e.changedTouches[0];
+
+            viewport.dispatchEvent(viewport.events.pointerdown, {
+                pageX: e.pageX - offset[0],
+                pageY: e.pageY - offset[1]
+            });
+        });
+
+        this.canvas.addEventListener("touchmove", function(e){
+            var offset = viewport.getOffset();
+            e.preventDefault();
+            e = e.changedTouches[0];
+
+            viewport.dispatchEvent(viewport.events.pointermove, {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
@@ -97,19 +111,25 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
 
         this.canvas.addEventListener("touchend", function(e){
             var offset = viewport.getOffset();
+            e.preventDefault();
+            e = e.changedTouches[0];
+
             viewport.dispatchEvent(viewport.events.pointerup, {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
         });
 
-        this.canvas.addEventListener("touchmove", function(e){
-
+        this.canvas.addEventListener("touchleave", function(e){
             var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointermove, {
+            e.preventDefault();
+            e = e.changedTouches[0];
+
+            viewport.dispatchEvent(viewport.events.pointerout, {
                 pageX: e.pageX - offset[0],
                 pageY: e.pageY - offset[1]
             });
+            e.preventDefault();
         });
     }
 
