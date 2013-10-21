@@ -1,4 +1,4 @@
-define(['./lib/Octree', "./gameObjects/Camera"], function (Octree, Camera) {
+define(['./lib/Octree'], function (Octree) {
 
     /**
      * @param {Logic} logic
@@ -9,7 +9,7 @@ define(['./lib/Octree', "./gameObjects/Camera"], function (Octree, Camera) {
         this.gameObjects = [];
 
         if (useOctree === true)
-            q = this.octree = new Octree()
+            q = this.octree = new Octree(64,1000,45)
 
         this.removeQueue = [];
     }
@@ -69,31 +69,6 @@ define(['./lib/Octree', "./gameObjects/Camera"], function (Octree, Camera) {
         if (this.octree !== null) {
             var pos = gameObject.transform.getPosition();
 
-            /*if (gameObject instanceof Camera) {
-                var b = gameObject.camera.bounds;
-
-                var item = new Octree.Item(b.center[0], b.center[1], b.center[2], (b.max[0] - b.min[0]) / 2, (b.max[1] - b.min[1]) / 2, (b.max[2] - b.min[2]) / 2);
-
-
-                gameObject.item = item;
-                item.gameObject = gameObject;
-
-
-                this.octree.insert(item);
-                var octree = this.octree;
-                gameObject.transform.addEventListener(gameObject.transform.events.update, function (transform) {
-                    console.log(b.center[0], b.center[1], b.center[2], (b.max[0] - b.min[0]) / 2, (b.max[1] - b.min[1]) / 2, (b.max[2] - b.min[2]) / 2);
-                    octree.remove(item);
-                    var p = transform.getPosition();
-                    item.x = b.center[0];
-                    item.y = b.center[1];
-                    item.z = b.center[2];
-                    item.ex = (b.max[0] - b.min[0]) / 2;
-                    item.ey = (b.max[1] - b.min[1]) / 2;
-                    item.ez = (b.max[2] - b.min[2]) / 2
-                    octree.insert(item);
-                });
-            } else {     */
                 var item = new Octree.Item(pos[0], pos[1], pos[2]);
 
                 gameObject.item = item;
@@ -110,7 +85,6 @@ define(['./lib/Octree', "./gameObjects/Camera"], function (Octree, Camera) {
                     item.z = p[2];
                     octree.insert(item);
                 });
-            //}
         }
 
 
@@ -170,8 +144,8 @@ define(['./lib/Octree', "./gameObjects/Camera"], function (Octree, Camera) {
             len = this.gameObjectsCount,
             gos = this.gameObjects;
 
-        for (i = 0; i < len; i++)
-            gos[i].tick(time);
+        for (i = 0; i < len; i++) //28
+            gos[i].tick(time); //26
 
         if (this.removeQueueWaiting) {
             var len = this.removeQueue.length,

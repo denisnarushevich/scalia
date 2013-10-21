@@ -22,7 +22,7 @@ define(function () {
     /**
      * @type {Number}
      */
-    p.dt = 40;
+    p.dt = 60;
 
     return Time;
 });

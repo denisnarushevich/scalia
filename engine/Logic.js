@@ -37,7 +37,7 @@ define(['./Time', './World', './config'], function (Time, World, config) {
     p.tick = function () {
         var now = Date.now(), i = 0;
         var frameTime = now - this.time.now,
-            dt = this.time.dt;
+            dtime, dt = this.time.dt;
 
         while (frameTime >= dt) {
             frameTime -= dt;

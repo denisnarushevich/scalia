@@ -1,39 +1,43 @@
+/**
+ * This class provides api to work with sprites, spritesheets etc;
+ */
 define(function (require) {
-    var assets = require("./AssetManager");
-
-    function SpriteMgr() {
-
+    function SpriteMgr(assetMgr) {
+        this.assets = assetMgr;
+        this.frames = {};
     }
 
     SpriteMgr.Sprite = function Sprite() {
-        this.sourceImage = new Image()
         this.offsetX = 0;
         this.offsetY = 0;
         this.width = 0;
         this.height = 0;
-    }
+    };
 
-    SpriteMgr.prototype.getSprite = function (name, onsuccess) {
-        //check if sprite with given name is present in atlas
-        //if not, look for image file with given name
+    SpriteMgr.Sprite.prototype.sourceImage = new Image();
 
-        //(/(.+?)(\.[^.]*$|$)/).exec(name)[1]+".json"
-
+    SpriteMgr.prototype.getSprite = function (name) {
         var sprite = new SpriteMgr.Sprite();
 
-        assets.getAsset(name, function (image) {
-            sprite.sourceImage = image;
-            sprite.width = image.width;
-            sprite.height = image.height;
-            onsuccess !== undefined && onsuccess(sprite);
-        }, undefined, assets.returnTypeEnum.image);
+        if (this.frames[name] !== undefined) {
+            var data = this.frames[name];
+            sprite.sourceImage = this.atlas;
+            sprite.width = data.frame.w;
+            sprite.height = data.frame.h;
+            sprite.offsetX = data.frame.x;
+            sprite.offsetY = data.frame.y;
+        } else {
+            this.assets.getAsset("img/" + name, this.assets.constructor.Resource.ResourceTypeEnum.image).done(function (resource) {
+                sprite.sourceImage = resource.data;
+                sprite.width = resource.data.width;
+                sprite.height = resource.data.height;
+            });
+
+        }
 
         return sprite;
     };
 
-    var mgr = new SpriteMgr();
-    mgr.Sprite = SpriteMgr.Sprite;
-
-    return mgr;
+    return SpriteMgr;
 });
 
