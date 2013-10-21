@@ -10,7 +10,8 @@
  */
 
 //TODO make callbacks for 404 cases.
-//TODO add text type. Basically this class should provide API for loading files from server, with usage similar to Unity3D Resource class.
+//TODO add text type.
+//TODO Basically this class should provide API for loading files from server, with usage similar to Unity3D Resource class.
 define(function () {
         function AssetManager() {
             this.assets = {};
@@ -118,7 +119,7 @@ define(function () {
                 } else if (returnType === AssetManager.returnTypeEnum.blob || returnType === undefined) {
                     onsuccess(assetManager.assets[name] = xhr.response);
                 } else if (returnType === AssetManager.returnTypeEnum.json) {
-                    assetManager.assets[name] = JSON.parse(xhr.response);
+                    onsuccess(assetManager.assets[name] = JSON.parse(xhr.response));
                 }
             });
 

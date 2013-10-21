@@ -10,8 +10,7 @@ define(['./components/TransformComponent'], function (Transform) {
 
         this.removeQueue = [];
 
-        if(name !== undefined)
-            this.name = name;
+        this.name = name || "gameObject";
     }
 
     var p = GameObject.prototype;
@@ -31,7 +30,7 @@ define(['./components/TransformComponent'], function (Transform) {
     /**
      * @type {string}
      */
-    p.name = "gameObject";
+    p.name = null;
 
     /**
      * Layer index
@@ -107,7 +106,7 @@ define(['./components/TransformComponent'], function (Transform) {
 
         component.setGameObject(this);
 
-        this.started && component.start();
+        this.started && component.start !== null && component.start();
 
         return component;
     }
@@ -138,8 +137,11 @@ define(['./components/TransformComponent'], function (Transform) {
             len = this.componentsCount,
             i;
 
-        for (i = 0; i < len; i++)
-            (component = components[i]).tick !== null && component.tick(time);
+        for (i = 0; i < len; i++){//24
+          component = components[i];//24
+          if(component.tick !== null) //14
+            component.tick(time);
+        }
 
         if(this.removeQueueWaiting){
             var len = this.removeQueue.length;

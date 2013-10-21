@@ -1,5 +1,5 @@
 define(["../Component"], function (Component) {
-    function Sprite() {
+    function Sprite(sprite) {
         Component.call(this);
 
         this.events = {
@@ -23,25 +23,25 @@ define(["../Component"], function (Component) {
     p.setGameObject = function(gameObject){
         Component.prototype.setGameObject.call(this, gameObject);
         gameObject.spriteRenderer = this;
-    }
+    };
 
     p.setSprite = function(sprite){
         this.sprite = sprite;
         this.enabled = true;
 
         return this;
-    }
+    };
 
     p.setPivot = function(x, y){
         this.pivotX = x;
         this.pivotY = y;
         return this;
-    }
+    };
 
     p.unsetGameObject = function(){
         this.gameObject.spriteRenderer = undefined;
         Component.prototype.unsetGameObject.call(this);
-    }
+    };
 
     return Sprite;
 });

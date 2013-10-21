@@ -41,94 +41,94 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
         });
 
         this.canvas.addEventListener("mousedown", function(e){
-            var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointerdown, { //custom event args. this can be moved to separate class e.g. PointerEventArgs.
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
+            viewport.dispatchEvent(viewport.events.pointerdown, e);
             e.preventDefault();
         });
 
         this.canvas.addEventListener("mouseup", function(e){
-            var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointerup, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
+            viewport.dispatchEvent(viewport.events.pointerup, e);
             e.preventDefault();
         });
 
         this.canvas.addEventListener("mousemove", function(e){
-            var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointermove, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
+            viewport.dispatchEvent(viewport.events.pointermove, e);
             e.preventDefault();
         });
 
         this.canvas.addEventListener("mousein", function(e){
-            var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointerin, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
+            viewport.dispatchEvent(viewport.events.pointerin, e);
             e.preventDefault();
         });
 
         this.canvas.addEventListener("mouseout", function(e){
-            var offset = viewport.getOffset();
-            viewport.dispatchEvent(viewport.events.pointerout, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
+            viewport.dispatchEvent(viewport.events.pointerout, e);
             e.preventDefault();
         });
 
         /* touches */
 
         this.canvas.addEventListener("touchstart", function(e){
-            var offset = viewport.getOffset();
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
             e.preventDefault();
             e = e.changedTouches[0];
 
-            viewport.dispatchEvent(viewport.events.pointerdown, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            viewport.dispatchEvent(viewport.events.pointerdown, e);
         });
 
         this.canvas.addEventListener("touchmove", function(e){
-            var offset = viewport.getOffset();
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
             e.preventDefault();
             e = e.changedTouches[0];
 
-            viewport.dispatchEvent(viewport.events.pointermove, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            viewport.dispatchEvent(viewport.events.pointermove, e);
         });
 
         this.canvas.addEventListener("touchend", function(e){
-            var offset = viewport.getOffset();
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
             e.preventDefault();
             e = e.changedTouches[0];
 
-            viewport.dispatchEvent(viewport.events.pointerup, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            viewport.dispatchEvent(viewport.events.pointerup, e);
         });
 
         this.canvas.addEventListener("touchleave", function(e){
-            var offset = viewport.getOffset();
+            var viewportBoundingRect = e.target.getBoundingClientRect();
+            e.gameViewportX = e.pageX - viewportBoundingRect.left;
+            e.gameViewportY = e.pageY - viewportBoundingRect.top;
+
             e.preventDefault();
             e = e.changedTouches[0];
 
-            viewport.dispatchEvent(viewport.events.pointerout, {
-                pageX: e.pageX - offset[0],
-                pageY: e.pageY - offset[1]
-            });
+            viewport.dispatchEvent(viewport.events.pointerout, e);
             e.preventDefault();
         });
     }
@@ -174,7 +174,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
     p.render = function () {
         if(this.camera !== null)
             this.graphics.renderer.render(this.camera, this);
-    }
+    };
 
     /**
      * @param {int[]} size Vector2. Size of the viewport
@@ -203,7 +203,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
         this.dispatchEvent(this.events.resize, this);
 
         return this;
-    }
+    };
 
     p.setCamera = function(camera){
         //this.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);//kostql
@@ -211,18 +211,7 @@ define(['lib/eventmanager', './config'], function (EventManager, config) {
         this.camera.camera.setViewport(this);
 
         return this;
-    }
-
-    p.getOffset = function(){
-        var offset = [0,0];
-        var current = this.canvas;
-        while(current != null){
-            offset[0] += current.offsetLeft;
-            offset[1] += current.offsetTop;
-            current = current.offsetParent;
-        }
-        return offset;
-    }
+    };
 
     return Viewport;
 });

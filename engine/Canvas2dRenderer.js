@@ -10,7 +10,13 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
     var p = Canvas2dRenderer.prototype,
         bufferVec3 = new Float32Array([0, 0, 0]),
         buffer2Vec3 = new Float32Array([0, 0, 0]),
-        bufferMat4 = new Float32Array(16);
+        bufferMat4 = new Float32Array(16),
+        depthSort = function (a, b) {
+            a.gameObject.transform.getPosition(bufferVec3);
+            a = bufferVec3[0] - bufferVec3[1] + bufferVec3[2];
+            b.gameObject.transform.getPosition(bufferVec3);
+            return a - (bufferVec3[0] - bufferVec3[1] + bufferVec3[2]);
+        };
 
     p.graphics = null;
 
@@ -74,13 +80,7 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
             renderersCount = renderers.length;
 
             if (config.depthSortingMask & (1 << i)) {
-                renderers.sort(function (a, b) {
-                    a.gameObject.transform.getPosition(bufferVec3);
-                    a = bufferVec3[0] + bufferVec3[1] + bufferVec3[2];
-                    b.gameObject.transform.getPosition(bufferVec3);
-                    b = bufferVec3[0] + bufferVec3[1] + bufferVec3[2];
-                    return a - b;
-                });
+                renderers.sort(depthSort);
             }
 
             for (j = 0; j < renderersCount; j++) {
@@ -110,7 +110,8 @@ define(["./config", "./lib/gl-matrix", "./components/PathRenderer", "./component
         glMatrix.vec3.transformMat4(bufferVec3, renderer.gameObject.transform.getPosition(bufferVec3), this.M);
         var sprite = renderer.sprite;
 
-        layer.drawImage(sprite.sourceImage, sprite.offsetX, sprite.offsetY, sprite.width, sprite.height, Math.round(bufferVec3[0] - renderer.pivotX), Math.round(bufferVec3[1] - renderer.pivotY), sprite.width, sprite.height);
+        //layer.drawImage(sprite.sourceImage, sprite.offsetX, sprite.offsetY, sprite.width, sprite.height, Math.round(bufferVec3[0] - renderer.pivotX), Math.round(bufferVec3[1] - renderer.pivotY), sprite.width, sprite.height);
+        layer.drawImage(sprite.sourceImage, sprite.offsetX, sprite.offsetY, sprite.width, sprite.height, (bufferVec3[0] - renderer.pivotX)|0, (bufferVec3[1] - renderer.pivotY)|0, sprite.width, sprite.height);
     }
 
     p.renderAxis = function (gameObject, ctx) {

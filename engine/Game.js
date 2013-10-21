@@ -5,6 +5,17 @@ define(["./Logic", "./Graphics"], function (Logic, Graphics) {
     function Game() {
         this.logic = new Logic(this);
         this.graphics = new Graphics(this);
+
+        var self = this,
+            logic = this.logic,
+            graphics = this.graphics;
+
+        this.tick = function(){
+            logic.tick();
+            graphics.render();
+
+            requestAnimFrame(self.tick);
+        }
     }
 
     var p = Game.prototype;
@@ -25,22 +36,15 @@ define(["./Logic", "./Graphics"], function (Logic, Graphics) {
     p.run = function () {
         this.logic.start();
         this.graphics.start();
-        this.mainLoop();
+        this.tick();
     }
+
+    p.rafHandler = null;
 
     /**
      * @type {void}
      */
-    p.mainLoop = function () {
-        this.logic.tick();
-
-        this.graphics.render();
-
-        var game = this;
-        requestAnimFrame(function () {
-            game.mainLoop();
-        });
-    }
+    //p.mainLoop =
 
     return Game;
 });
